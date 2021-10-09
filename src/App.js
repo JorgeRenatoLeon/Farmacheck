@@ -21,23 +21,25 @@ function App() {
             Tu decides dónde compras tus medicinas al mejor precio
           </div>
         </div>
-        <div class="search-container input-group mb-3">
-          <span class="input-group-text" id="basic-addon1">
-            <i class="bi-alarm" style={{fontSize: "2rem", color: "cornflowerblue"}}></i>
+      </div>
+      <div className="search-container">
+        <div className="input-group">
+          <span className="input-group-text">
+            <i className="bi-search input-icon"></i>
           </span>
-          <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"/>
+          <input type="text" class="form-control" placeholder="Buscar..."/>
         </div>
       </div>
       <div className="bottom-logos">
         <div className="bottom-logo-icon">
           <img 
             src="https://www.pngfind.com/pngs/m/126-1265657_spotifylogoswap-walmart-logo-sin-fondo-hd-png-download.png"
-            alt="logo" width="50px" height="50px"/>
+            alt="logo" width="250px" height="100px"/>
         </div>
         <div className="bottom-logo-icon">
           <img 
             src="https://www.pngfind.com/pngs/m/126-1265657_spotifylogoswap-walmart-logo-sin-fondo-hd-png-download.png"
-            alt="logo" width="50px" height="50px"/>
+            alt="logo" width="250px" height="100px"/>
         </div>
       </div>
     </div>
