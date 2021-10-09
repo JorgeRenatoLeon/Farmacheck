@@ -1,29 +1,27 @@
 .App {
-  background-color: rgb(16, 91, 120);
+  background-color: #eef0ef;
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   position: relative;
-  color: white;
+  color: #249ba8;
 }
 
-.top-logos{
-  position: absolute;
-  top: 15%;
+.logo{
+  text-align: center;
+}
+
+.text-container{
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  width: 100%;
-}
-
-.top-logo-icon:last-of-type{
-  margin-top: 15px;
+  justify-content: center;
 }
 
 .logo-text{
   text-align: center;
   font-size: 50px;
   font-weight: 800;
+  margin-right: 10px;
 }
