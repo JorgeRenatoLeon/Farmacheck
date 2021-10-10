@@ -1,6 +1,7 @@
 import React from "react";
 // import { useHistory } from "react-router";
-// import * as ROUTES from "../../routes/routes"; 
+// import * as ROUTES from "../../routes/routes";
+import Logo from "../../assets/img/logo.jpg"
 
 import './home.scss';
 
@@ -15,14 +16,14 @@ const Home = () => {
     <div name="Home" className="home-container">
       <div className="logo-container">
         <div className="logo">
-          <img src="https://www.pngfind.com/pngs/m/126-1265657_spotifylogoswap-walmart-logo-sin-fondo-hd-png-download.png" alt="logo" width="200px" height="200px"/>
+          <img src={Logo} alt="logo" width="200px" height="200px"/>
         </div>
         <div className="text-container">
           <div className="logo-text">
             FARMA
           </div>
           <div className="logo-icon">
-            <img src="https://www.pngfind.com/pngs/m/126-1265657_spotifylogoswap-walmart-logo-sin-fondo-hd-png-download.png" alt="logo" width="50px" height="50px"/>
+            <img src={Logo} alt="logo" width="50px" height="50px"/>
           </div>
         </div>
         <div className="text-description-container">
@@ -34,12 +35,12 @@ const Home = () => {
       <div className="bottom-logos">
         <div className="bottom-logo-icon">
           <img 
-            src="https://www.pngfind.com/pngs/m/126-1265657_spotifylogoswap-walmart-logo-sin-fondo-hd-png-download.png"
+            src={Logo}
             alt="logo" width="250px" height="100px"/>
         </div>
         <div className="bottom-logo-icon">
           <img 
-            src="https://www.pngfind.com/pngs/m/126-1265657_spotifylogoswap-walmart-logo-sin-fondo-hd-png-download.png"
+            src={Logo}
             alt="logo" width="250px" height="100px"/>
         </div>
       </div>
