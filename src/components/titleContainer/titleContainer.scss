@@ -1,0 +1,21 @@
+@import '../../scss/variables';
+
+.card{
+    background-color: $primary;
+    margin: 10px;
+    border-radius: 10px;
+    margin-top: 70px;
+    display: flex;
+    padding: 10px;
+}
+.card-title{
+    text-transform: uppercase;
+    color: white;
+    font-size: 20px;
+    font-family: sans-serif;
+}
+.icon-title{    
+    font-size: 20px;
+    margin-right: 10px;
+}
+
