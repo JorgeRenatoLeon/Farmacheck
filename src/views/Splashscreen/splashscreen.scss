@@ -1,0 +1,25 @@
+.splashscreen-container {
+    color: black;
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    padding: 15px;
+
+    .splashscreen-list{
+        padding-left: 1rem;
+
+        li {
+            margin-top: 15px;
+            padding-left: 0.5rem;
+    
+            &:first-of-type{
+                margin: 0;
+            }
+    
+            &::marker{
+                content: "■";
+                margin-right: auto;
+            }
+        }
+    } 
+}
