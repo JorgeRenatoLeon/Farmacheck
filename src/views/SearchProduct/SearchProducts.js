@@ -38,7 +38,6 @@ const SearchProduct = () => {
   return (
     <>
       <TitleContainer title="Arcoxia"/>
-      <div className="accordion open" id="accordion-parent">
         {listProductOptions.map((productOption, index)=>{
           return (
             <DropdownCard 
@@ -48,7 +47,6 @@ const SearchProduct = () => {
             />
           );
         })}
-      </div>
     </>
   );
 };
