@@ -1,3 +1,17 @@
+@font-face {
+    font-family: "Tripleta";
+    src: url(../assets/fonts/TRIPLETA-ExtraBold.ttf) format("opentype");
+}
+@font-face {
+    font-family: "Tripleta";
+    font-style: italic;
+    src: url(../assets/fonts/TRIPLETA-ExtraBold-italic.ttf) format("opentype");
+}
+
+/**
+* Typography
+*/
 body {
+    font-family: Tripleta, sans-serif !important;
     color: $primary;
 }

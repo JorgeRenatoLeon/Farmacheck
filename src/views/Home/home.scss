@@ -8,6 +8,7 @@
     flex-direction: column;
     justify-content: center;
     align-content: center;
+    animation: home-fade 1.5s;
 
     .logo{
         text-align: center;
@@ -77,5 +78,17 @@
 
     .bottom-logo-icon:last-of-type{
         margin-top: 15px;
+    }
+}
+
+// Animations
+
+@keyframes home-fade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
     }
 }

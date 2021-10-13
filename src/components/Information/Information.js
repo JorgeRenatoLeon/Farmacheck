@@ -2,9 +2,9 @@ import React from "react";
 // import { useHistory } from "react-router";
 // import * as ROUTES from "../../routes/routes"; 
 
-import './splashscreen.scss';
+import './information.scss';
 
-const Splashscreen = () => {
+const Information = () => {
     // const history = useHistory();
 
     // setTimeout(() => {
@@ -12,8 +12,8 @@ const Splashscreen = () => {
     // }, 3000);
 
     return (
-        <div name="Splashscreen" className="splashscreen-container">
-            <ul className="splashscreen-list">
+        <div name="Information" className="information-container">
+            <ul className="information-list">
                 <li>
                     <strong>FarmaCheck</strong> es un buscador de precios referenciales de medicamentos que te ayudará a tomar una decisión de compra informada.
                 </li>
@@ -40,4 +40,4 @@ const Splashscreen = () => {
     );
 }
 
-export default Splashscreen;
+export default Information;
