@@ -23,7 +23,9 @@ const Search = () => {
         </div>
 
         <div className="see-more-btn">
-            VER MAS
+            <button type="button" class="btn btn-primary">
+                VER MAS
+            </button>
         </div>
     </div>
   );

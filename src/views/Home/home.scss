@@ -33,43 +33,6 @@
         }
     }
     
-    .search-container{
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        margin: 25px 0px;
-
-        .input-group{
-            width: 80%;
-            
-    
-            .form-control {
-                color: white !important;
-                background-color: #249ba8 !important;
-                border: 1px solid #249ba8 !important;
-            }
-    
-            .form-control:focus {
-                box-shadow: none !important;
-            }
-            
-            .form-control::placeholder {
-                color: white !important;
-            }
-    
-            .input-icon {
-                font-size: 1rem;
-                color: white;
-                display: flex;
-            }
-            
-            .input-group-text {
-                background-color: #249ba8 !important;
-                border: 1px solid #249ba8 !important;
-            }
-        }
-    }
-    
     .bottom-logo-icon{
         margin-top: 15px;
         display: flex;
