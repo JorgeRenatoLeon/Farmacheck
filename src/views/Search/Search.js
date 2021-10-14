@@ -46,7 +46,7 @@ const Search = () => {
                     </span>
                     <input
                         type="text"
-                        class="form-control"
+                        className="form-control"
                         placeholder="Buscar..."
                         onChange={(event) => {
                           handleSearch(event.target.value);
