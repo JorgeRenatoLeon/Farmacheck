@@ -1,11 +1,10 @@
-.splashscreen-container {
-    color: black;
-    display: flex;
-    align-items: center;
-    min-height: 100vh;
-    padding: 15px;
+@import '../../sassStyles/variables';
 
-    .splashscreen-list{
+.information-container {
+    color: black;
+    animation: information-fade 2s;
+
+    .information-list{
         padding-left: 1rem;
 
         li {
@@ -23,3 +22,16 @@
         }
     } 
 }
+
+@keyframes information-fade {
+    from {
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
