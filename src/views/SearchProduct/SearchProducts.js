@@ -1,9 +1,10 @@
 import React from "react";
-import TitleContainer from "../../components/titleContainer/TitleContainer";
+import TitleContainer from "../../components/TitleContainer/TitleContainer";
 import DropdownCard from "../../components/DropdownCard/DropdownCard";
+import CommentsCard from "../../components/CommentsCard/CommentsCard";
+
 const SearchProduct = () => {
   
-  const [name, setName] = React.useState("Andrea");
   const [listProductOptions, setListProductOptions] = React.useState([
     {
       presentacion: "Tableta",
@@ -38,7 +39,6 @@ const SearchProduct = () => {
   return (
     <>
       <TitleContainer title="Arcoxia"/>
-      <div className="accordion open" id="accordion-parent">
         {listProductOptions.map((productOption, index)=>{
           return (
             <DropdownCard 
@@ -48,7 +48,7 @@ const SearchProduct = () => {
             />
           );
         })}
-      </div>
+      <CommentsCard/>
     </>
   );
 };

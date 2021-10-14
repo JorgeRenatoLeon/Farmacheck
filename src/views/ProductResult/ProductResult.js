@@ -1,14 +1,38 @@
 import React from "react";
+import TitleContainer from "../../components/TitleContainer/TitleContainer";
+import ItemProduct from "../../components/ItemProduct/ItemProduct";
+import CommentsCard from "../../components/CommentsCard/CommentsCard";
 
 const ProductResult = () => {
   
-  const [name, setName] = React.useState("Andrea");
+  const [listProductOptions, setListProductOptions] = React.useState([
+    {
+      laboratorio: "Merc Sharp",
+      marca: "Arcoxia",
+      precio: 8.27,
+
+    },
+    {
+      laboratorio: "Perulab",
+      marca: "Exotib",
+      precio: 8.00,
+    }
+  ]);
 
   return (
-    <div>
-        <h1>Hola</h1>
-        <h2>{name}</h2>
-    </div>
+    <>
+      <TitleContainer title="Arcoxia | 90mg | Tableta"/>
+      {listProductOptions.map((item)=>{
+        return(
+          <ItemProduct 
+            title={item.marca} 
+            subtitle={item.laboratorio} 
+            price={item.precio}/>
+        )
+      })}
+      <CommentsCard/>
+
+    </>
   );
 };
 
