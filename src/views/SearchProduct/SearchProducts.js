@@ -1,6 +1,8 @@
 import React from "react";
 import TitleContainer from "../../components/titleContainer/TitleContainer";
 import DropdownCard from "../../components/DropdownCard/DropdownCard";
+import CommentsCard from "../../components/CommentsCard/CommentsCard";
+
 const SearchProduct = () => {
   
   const [name, setName] = React.useState("Andrea");
@@ -47,6 +49,7 @@ const SearchProduct = () => {
             />
           );
         })}
+      <CommentsCard/>
     </>
   );
 };

@@ -3,7 +3,7 @@
 .accordion-item{
     border-top-left-radius: 10px!important;
     border-top-right-radius: 10px!important;
-    background-color: #6d7e7e;
+    background-color: $gray-dark;
     border-bottom-left-radius: 20px!important;
     border-bottom-right-radius: 20px!important;
     border: none;
@@ -15,7 +15,7 @@
 
 
 .accordion-body{
-    background-color: #c5cbcb;
+    background-color: $gray-light;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
 }
@@ -36,7 +36,7 @@
 
 .dropdown-container{
     border-radius: 10px!important;
-    background-color: #6d7e7e;
+    background-color: $gray-dark;
     color: white;
 }
 
@@ -53,11 +53,11 @@
 
 .accordion-button:not(.collapsed) {
     color: white;
-    background-color: #6d7e7e;
+    background-color: $gray-dark;
 }
 
 .list-group-item{
-    background-color: #c5cbcb;
+    background-color: $gray-light;
     border: none;
     color: $primary;
     font-weight: 600;
