@@ -1,0 +1,65 @@
+@import '../../sassStyles/variables';
+
+.accordion-item{
+    border-top-left-radius: 10px!important;
+    border-top-right-radius: 10px!important;
+    background-color: $gray-dark;
+    border-bottom-left-radius: 20px!important;
+    border-bottom-right-radius: 20px!important;
+    border: none;
+}
+
+.accordion-header{
+    text-transform: capitalize;
+}
+
+
+.accordion-body{
+    background-color: $gray-light;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.accordion-button::after{
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+    
+}
+
+.accordion-button:not(.collapsed)::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.dropdown-product{
+    margin: 10px;
+    margin-top: 20px;
+}
+
+.dropdown-container{
+    border-radius: 10px!important;
+    background-color: $gray-dark;
+    color: white;
+}
+
+.accordion-button{
+    text-transform: uppercase;
+}
+
+.accordion-button:focus {
+    z-index: 3;
+    border-color: transparent;
+    outline: 0;
+    box-shadow: none;
+}
+
+.accordion-button:not(.collapsed) {
+    color: white;
+    background-color: $gray-dark;
+}
+
+.list-group-item{
+    background-color: $gray-light;
+    border: none;
+    color: $primary;
+    font-weight: 600;
+    text-align: center;
+}

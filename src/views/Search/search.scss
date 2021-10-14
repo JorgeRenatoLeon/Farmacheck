@@ -1,0 +1,54 @@
+@import '../../sassStyles/variables';
+
+
+.search-container {
+    background-color: #eef0ef;
+    padding: 10px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+
+    .search-input{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin: 15px 0px;
+        height: 40px;
+    
+        .form-control {
+            color: white !important;
+            background-color: #249ba8 !important;
+            border: 1px solid #249ba8 !important;
+
+            &:focus {
+                box-shadow: none !important;
+            }
+
+            &::placeholder {
+                color: white !important;
+            }
+        }
+    
+        .input-icon {
+            font-size: 1rem;
+            color: white;
+            display: flex;
+        }
+        
+        .input-group-text {
+            background-color: #249ba8 !important;
+            border: 1px solid #249ba8 !important;
+        }
+    }
+
+    .see-more-btn{
+        margin-top: auto;
+        text-align: center;
+
+        .btn-primary{
+            background-color: $primary;
+            border-color: $primary;
+        }
+    }
+}

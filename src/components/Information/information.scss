@@ -1,0 +1,37 @@
+@import '../../sassStyles/variables';
+
+.information-container {
+    color: black;
+    animation: information-fade 2s;
+
+    .information-list{
+        padding-left: 1rem;
+
+        li {
+            margin-top: 15px;
+            padding-left: 0.5rem;
+    
+            &:first-of-type{
+                margin: 0;
+            }
+    
+            &::marker{
+                content: "■";
+                margin-right: auto;
+            }
+        }
+    } 
+}
+
+@keyframes information-fade {
+    from {
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
