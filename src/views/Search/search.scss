@@ -1,4 +1,4 @@
-@import '../../scss/variables';
+@import '../../sassStyles/variables';
 
 
 .search-container {
@@ -45,5 +45,10 @@
     .see-more-btn{
         margin-top: auto;
         text-align: center;
+
+        .btn-primary{
+            background-color: $primary;
+            border-color: $primary;
+        }
     }
 }
