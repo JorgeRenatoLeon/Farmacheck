@@ -1,0 +1,9 @@
+@import '../../sassStyles/variables';
+.p-text{
+    color: $gray-dark;
+    margin-left: 20px;
+}
+
+p > span {
+    font-weight: 600;
+}

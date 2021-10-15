@@ -2,7 +2,7 @@ import React from "react";
 import TitleContainer from "../../components/TitleContainer/TitleContainer";
 import SelectDropdown from "../../components/SelectDropdown/SelectDropdown";
 import CommentsCard from "../../components/CommentsCard/CommentsCard";
-
+import SeeMoreButton from "../../components/SeeMoreButton/SeeMoreButton";
 
 const StorePlaces = () => {
   const [selectedDepartment, setSelectedDepartment]  = React.useState(-1);
@@ -63,6 +63,9 @@ const StorePlaces = () => {
       },
   ]);
 
+  const handleClick = () => {
+      console.log("aceptar");
+  }
   return (
     <>
       <TitleContainer product="Lugares de compra"/>
@@ -84,6 +87,7 @@ const StorePlaces = () => {
         idSelected={selectedDistrict} 
         listItems={selectedProvince>=0?listDepartments[selectedDepartment].province[selectedProvince].districts:[]}
         handleClickList={setSelectedDistrict}/>
+      <SeeMoreButton title="Aceptar" clickFunction={handleClick} disabled={false}/>
       <CommentsCard/>
     </>
   );
