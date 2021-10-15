@@ -4,8 +4,7 @@ const TitleContainer = (props) => {
   
   const {title} = props;
 
-  return (
-    <div className="container">          
+  return (           
       <div className="card-titleContainer">   
         <div className="row m-0">       
           <div className="col-1">
@@ -20,7 +19,6 @@ const TitleContainer = (props) => {
           </div>          
         </div>        
       </div>  
-    </div>
   );
 };
 
