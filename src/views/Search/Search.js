@@ -1,4 +1,5 @@
 import React from "react";
+import ProductCard from "../../components/ProductCard/ProductCard";
 // import { useHistory } from "react-router";
 // import * as ROUTES from "../../routes/routes";
 import services from "../../services/apiProduct";
@@ -16,14 +17,20 @@ const Search = () => {
 
     const [page, setPage] = React.useState(1);
 
-    const[results, setResults] = React.useState([])
+    const [products, setProducts] = React.useState([
+        "Arcalion",
+        "Arcobax",
+        "Arcodex",
+        "Arcoflam",
+        "Arcolane"
+    ]);
     
     function search(word) {
         services
             .searchProducts(page, 10, word)
             .then((response) => {
                 console.log(response)
-                setResults(response.precios);
+                setProducts(response.precios);
             })
             .catch((e) => {
                 console.log(e);
@@ -41,9 +48,6 @@ const Search = () => {
         <div name="Search" className="search-container">
             <div className="search-input">
                 <div className="input-group">
-                    <span className="input-group-text">
-                        <i className="bi-search input-icon"></i>
-                    </span>
                     <input
                         type="text"
                         className="form-control"
@@ -52,11 +56,26 @@ const Search = () => {
                           handleSearch(event.target.value);
                         }}
                     />
+                    <span className="input-group-text">
+                        <i className="bi-search input-icon"></i>
+                    </span>
                 </div>
             </div>
 
+            <div className="results-container">
+                {products.map((product, index)=>{
+                return (
+                    <ProductCard 
+                        key={"cardP-"+index}
+                        title={product}
+                    />
+                );
+                })}
+            </div>
+
+
             <div className="see-more-btn d-grid">
-                <button type="button" class="btn btn-primary">
+                <button type="button" className="btn btn-primary">
                     VER MAS
                 </button>
             </div>
