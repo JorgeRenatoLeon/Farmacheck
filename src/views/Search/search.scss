@@ -3,7 +3,6 @@
 
 .search-container {
     background-color: #eef0ef;
-    padding: 10px;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -13,13 +12,18 @@
         width: 100%;
         display: flex;
         justify-content: center;
-        margin: 15px 0px;
-        height: 40px;
+
+        .input-group {
+            padding-top: 10px;
+            background-color: $primary !important;
+        }
     
         .form-control {
             color: white !important;
-            background-color: #249ba8 !important;
-            border: 1px solid #249ba8 !important;
+            background-color: $primary !important;
+            border: 1px solid $primary !important;
+            height: 55px;
+            border-radius: 0px;
 
             &:focus {
                 box-shadow: none !important;
@@ -37,18 +41,14 @@
         }
         
         .input-group-text {
-            background-color: #249ba8 !important;
-            border: 1px solid #249ba8 !important;
+            background-color: $primary !important;
+            border: 1px solid $primary !important;
+            border-radius: 0px;
         }
     }
 
-    .see-more-btn{
-        margin-top: auto;
-        text-align: center;
-
-        .btn-primary{
-            background-color: $primary;
-            border-color: $primary;
-        }
+    .results-container{
+        padding: 10px;
     }
+
 }
