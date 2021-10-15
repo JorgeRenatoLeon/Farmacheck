@@ -14,15 +14,19 @@
         justify-content: center;
 
         .input-group {
-            padding-top: 10px;
+            padding-top: 20px;
+            padding-bottom: 20px;
             background-color: $primary !important;
         }
     
         .form-control {
             color: white !important;
             background-color: $primary !important;
-            border: 1px solid $primary !important;
-            height: 55px;
+            border: none !important;
+            border-bottom: 1px solid white !important;
+            height: 45px;
+            margin-left: 20px;
+            padding-left: 0;
             border-radius: 0px;
 
             &:focus {
@@ -42,13 +46,26 @@
         
         .input-group-text {
             background-color: $primary !important;
-            border: 1px solid $primary !important;
+            border: none !important;
+            border-bottom: 1px solid white !important;
             border-radius: 0px;
+            margin-right: 20px;
         }
     }
 
+    .results-info{
+        padding: 20px;
+        font-size: 12px;
+        font-weight: bold;
+    }
+
     .results-container{
-        padding: 10px;
+        padding: 20px;
+        padding-top: 0;
+
+        .product-card-container:first-of-type {
+            margin: 0;
+        }
     }
 
 }

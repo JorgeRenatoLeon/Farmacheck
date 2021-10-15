@@ -17,6 +17,7 @@ const Search = () => {
     const [searchString, setSearchString] = React.useState("");
 
     const [page, setPage] = React.useState(1);
+    const [loading, setLoading] = React.useState(false);
 
     const [products, setProducts] = React.useState([
         "Arcalion",
@@ -26,23 +27,33 @@ const Search = () => {
         "Arcolane"
     ]);
     
-    function search(word) {
+    function search(word, pageNumber) {
         services
-            .searchProducts(page, 10, word)
+            .searchProducts(pageNumber, 10, word)
             .then((response) => {
                 console.log(response)
-                setProducts(response.precios);
+                setLoading(false);
+                return response.precios;
             })
             .catch((e) => {
                 console.log(e);
+                setLoading(false);
+                return [];
             });
     }
 
     function handleSearch(word){
         setSearchString(word)
         if(word.length >= 3){
-            search(word)
+            setProducts(search(word, page));
         }
+    }
+
+    function moreResults(){
+        setLoading(true);
+        var newPage = search(searchString, page + 1 );
+        setPage(page+1)
+        setProducts(products.concat(newPage))
     }
 
     return (
@@ -52,7 +63,7 @@ const Search = () => {
                     <input
                         type="text"
                         className="form-control"
-                        placeholder="Buscar..."
+                        placeholder="Busca por nombre comercial o genérico"
                         value={searchString}
                         onChange={(event) => {
                           handleSearch(event.target.value);
@@ -62,6 +73,10 @@ const Search = () => {
                         <i className="bi-search input-icon"></i>
                     </span>
                 </div>
+            </div>
+
+            <div className="results-info">
+                {"Total de resultados: " + products.length}
             </div>
 
             <div className="results-container">
@@ -75,7 +90,7 @@ const Search = () => {
                 })}
             </div>
 
-            <SeeMoreButton clickFunction={() => {console.log("click")}} />
+            <SeeMoreButton title="Ver más" clickFunction={moreResults} disabled={loading}/>
         </div>
     );
 };

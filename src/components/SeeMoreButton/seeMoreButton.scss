@@ -1,7 +1,7 @@
 @import '../../sassStyles/variables';
 
 .see-more-container{
-    padding: 10px;
+    padding: 20px;
     margin-top: auto;
     text-align: center;
 
@@ -11,5 +11,10 @@
         background-color: $primary;
         border-color: $primary;
         border-radius: 10px;
+        transition: 0.5s;
+
+        &:hover {
+            opacity: 0.9;
+        }
     }
 }

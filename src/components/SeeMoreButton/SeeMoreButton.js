@@ -11,12 +11,12 @@ const SeeMoreButton = (props) => {
     //     history.push(ROUTES.SPLASHSCREEN);
     // }, 2500);
   
-    const { clickFunction } = props;
+    const { title, clickFunction, disabled } = props;
 
     return (
         <div name="SeeMoreButton" className="see-more-container d-grid">
-            <button type="button" className="btn btn-primary" onClick={clickFunction.bind(this)}>
-                Ver mas
+            <button type="button" disabled={disabled} className="btn btn-primary" onClick={clickFunction.bind(this)}>
+                {title}
             </button>
         </div>
     );
