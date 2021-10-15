@@ -5,6 +5,7 @@ import Home from "../../views/Home/Home";
 import Search from "../../views/Search/Search";
 import ProductResult from "../../views/ProductResult/ProductResult";
 import SearchProduct from "../../views/SearchProduct/SearchProducts";
+import StorePlaces from "../../views/StorePlaces/StorePlaces";
 
 const AppRouter = () => {
 
@@ -15,6 +16,7 @@ const AppRouter = () => {
                 <Route exact path={ROUTES.SEARCH} component={Search}/>
                 <Route exact path={ROUTES.PRODUCTRESULT} component={ProductResult}/>
                 <Route exact path={ROUTES.SEARCHPRODUCTS} component={SearchProduct}/>
+                <Route exact path={ROUTES.STOREPLACES} component={StorePlaces}/>
                 <Redirect from="/" to={ROUTES.HOME} />
             </Switch>
         </BrowserRouter>
