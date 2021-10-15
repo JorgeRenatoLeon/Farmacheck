@@ -1,27 +1,32 @@
 @import '../../sassStyles/variables';
 .itemProductContainer{
-    padding-left: 60px;
     padding-top: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    
 }
 .p-title{
     font-weight: 600;
-    font-size: 20px;
     color: $gray-dark;
     text-transform: uppercase;
     margin-bottom: 0;
 }
 
+.p-price-container{
+    text-align: end;
+    line-height: 80px;
+}
+
 .p-subtitle{
     color: $gray-dark;
-    font-size: 20px;
     margin-bottom: 0;
-    line-height: 32px;
+    line-height: 45px;
 }
 
 .p-price{
     font-weight: 600;
-    font-size: 25px;
-    color: $gray-dark;
+    font-size: 40px;
+    color: $primary;
     margin-bottom: 0;
-    line-height: 32px;
+    line-height: 45px;
 }

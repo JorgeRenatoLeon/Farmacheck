@@ -21,7 +21,7 @@ const ProductResult = () => {
 
   return (
     <>
-      <TitleContainer title="Arcoxia | 90mg | Tableta"/>
+      <TitleContainer product="Arcoxia"  quantity="90mg"  concentration="Tableta"/>
       {listProductOptions.map((item)=>{
         return(
           <ItemProduct 

@@ -8,18 +8,20 @@ const ItemProduct = (props) => {
     <div className="container itemProductContainer">
         <div className="row">
             <div className="col">
-                <p className="p-title">{title}</p>
+                <div className="row">
+                    <p className="p-title">{title}</p>
+                </div>
+                <div className="row">
+                    <p className="p-subtitle">{subtitle}</p>
+                </div>
             </div>
-        </div>
-        <div className="row">
-            <div className="col">
-                <p className="p-subtitle">{subtitle}</p>
+            <div className="col">                
+                <div className="p-price-container">
+                    <span className="p-title">S/ </span>
+                    <span className="p-price">{price.toFixed(2)}</span>
+                </div>
             </div>
-            <div className="col">
-                <span className="p-subtitle">s/</span>
-                <span className="p-price">{price}</span>
-            </div>
-        </div>
+        </div> 
     </div>
   );
 };

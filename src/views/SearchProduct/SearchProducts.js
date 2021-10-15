@@ -38,7 +38,7 @@ const SearchProduct = () => {
 
   return (
     <>
-      <TitleContainer title="Arcoxia"/>
+      <TitleContainer product="Arcoxia"/>
         {listProductOptions.map((productOption, index)=>{
           return (
             <DropdownCard 
