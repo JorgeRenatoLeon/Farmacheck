@@ -1,0 +1,9 @@
+@import '../../sassStyles/variables';
+.see-more-container{
+    border: 1px solid $primary;
+    color: $primary;
+    text-align: center;
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+}
