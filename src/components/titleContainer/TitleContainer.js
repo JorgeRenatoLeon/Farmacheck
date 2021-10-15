@@ -2,10 +2,9 @@ import React from "react";
 import './titleContainer.scss';
 const TitleContainer = (props) => {
   
-  const {title} = props;
+  const {product, quantity, concentration} = props;
 
-  return (
-    <div className="container">          
+  return (           
       <div className="card-titleContainer">   
         <div className="row m-0">       
           <div className="col-1">
@@ -14,13 +13,14 @@ const TitleContainer = (props) => {
             </div>
           </div>
           <div className="col">
-            <div className="card-title-titleContainer">
-                {title}
+            <div>
+                <span className="card-title-titleContainer">{product}</span>
+                <span className="card-title-titleContainer-quantity">{quantity? " | "+quantity:""}</span>  
+                <span className="card-title-titleContainer">{concentration? " | "+concentration:""}</span>                
             </div>
           </div>          
         </div>        
       </div>  
-    </div>
   );
 };
 

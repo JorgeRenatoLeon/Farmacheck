@@ -2,21 +2,26 @@
 
 .card-titleContainer{
     background-color: $primary;
-    border-radius: 10px;
-    margin-top: 70px;
-    padding: 10px;    
+    padding-top: 30px;
     flex-direction: row;
     padding-bottom: 10px;
+    padding-left: 10px;
+    margin-bottom: 20px;
 }
+
 .card-title-titleContainer{
     text-transform: uppercase;
     color: white;
-    font-size: 20px;
-    font-family: sans-serif;
     padding-bottom: 0px;
 }
+
+.card-title-titleContainer-quantity{
+    color: white;
+    padding-bottom: 0px;
+}
+
 .icon-title{    
-    font-size: 20px;
+    font-size: 20;
     margin-right: 10px;
     color: white;
 }

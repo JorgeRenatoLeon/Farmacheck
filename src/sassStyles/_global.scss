@@ -2,8 +2,8 @@
 
 body {
     color: $primary;
-    font-family: sans-serif,'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue';    
+    font-family: 'Helvetica', 'sans-serif','Segoe UI', 'Roboto';   
+    font-size: 20px; 
     min-height: 100vh;
     position: relative;
     margin: 0;
@@ -13,6 +13,6 @@ body {
 }
 
 code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    font-family: 'source-code-pro', 'Menlo', 'Monaco', 'Consolas', 'Courier New',
     monospace;
 }

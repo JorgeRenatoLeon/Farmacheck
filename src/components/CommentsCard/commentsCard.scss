@@ -1,27 +1,27 @@
 @import '../../sassStyles/variables';
 
 .card-comments {
-    background-color: $gray-light;
-    border-radius: 10px;
+    background-color: #eaeaea;
     padding-left: 10px;    
     padding-right: 10px;  
     padding-top: 5px;  
-    padding-bottom: 5px;  
+    padding-bottom: 20px;  
     flex-direction: column;
     position: absolute;
-    bottom: 90px;
-    right: 10px;
-    width: 55%;
+    bottom: 0px;
+    width: 100%;
+    text-align: center;
+
 }
 
 .first-text {
     color: $gray-dark;
     margin-bottom: 0px;
-    font-style: italic;
 
 }
 .second-text {
     color: $primary;
     margin-bottom: 0px;
-    font-style: italic;
+    text-decoration: underline $primary; 
+    
 }
