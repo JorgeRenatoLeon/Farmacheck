@@ -1,5 +1,6 @@
 import React from "react";
 import ProductCard from "../../components/ProductCard/ProductCard";
+import SeeMoreButton from "../../components/SeeMoreButton/SeeMoreButton";
 // import { useHistory } from "react-router";
 // import * as ROUTES from "../../routes/routes";
 import services from "../../services/apiProduct";
@@ -73,12 +74,7 @@ const Search = () => {
                 })}
             </div>
 
-
-            <div className="see-more-btn d-grid">
-                <button type="button" className="btn btn-primary">
-                    VER MAS
-                </button>
-            </div>
+            <SeeMoreButton clickFunction={() => {console.log("click")}} />
         </div>
     );
 };
