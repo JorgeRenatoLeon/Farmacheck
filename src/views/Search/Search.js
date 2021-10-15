@@ -53,6 +53,7 @@ const Search = () => {
                         type="text"
                         className="form-control"
                         placeholder="Buscar..."
+                        value={searchString}
                         onChange={(event) => {
                           handleSearch(event.target.value);
                         }}

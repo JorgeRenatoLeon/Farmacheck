@@ -16,7 +16,7 @@ const SeeMoreButton = (props) => {
     return (
         <div name="SeeMoreButton" className="see-more-container d-grid">
             <button type="button" className="btn btn-primary" onClick={clickFunction.bind(this)}>
-                VER MAS
+                Ver mas
             </button>
         </div>
     );

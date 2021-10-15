@@ -1,6 +1,8 @@
 import axios from "axios";
 
-const API_URL = " http://44.197.85.123:9080/buscador-precios/";
+const API_URL = 
+"http://localhost:9080/buscador-precios/";
+// "http://44.197.85.123:9080/buscador-precios/";
 
 const searchProducts = (firstResult, maxResults, producto) => {
     const obj = {
