@@ -1,14 +1,14 @@
 import React from "react";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import SeeMoreButton from "../../components/SeeMoreButton/SeeMoreButton";
-// import { useHistory } from "react-router";
-// import * as ROUTES from "../../routes/routes";
+import { useHistory } from "react-router";
+import * as ROUTES from "../../routes/routes";
 import services from "../../services/apiProduct";
 
 import './search.scss';
 
 const Search = () => {
-    // const history = useHistory();
+    const history = useHistory();
 
     // setTimeout(() => {
     //     history.push(ROUTES.SPLASHSCREEN);
@@ -55,6 +55,10 @@ const Search = () => {
         setPage(page+1)
         setProducts(products.concat(newPage))
     }
+    
+    const handleClick = () =>{
+        history.push(ROUTES.SEARCHPRODUCTS);
+    }
 
     return (
         <div name="Search" className="search-container">
@@ -85,6 +89,7 @@ const Search = () => {
                     <ProductCard 
                         key={"cardP-"+index}
                         title={product}
+                        handleClick={handleClick}
                     />
                 );
                 })}

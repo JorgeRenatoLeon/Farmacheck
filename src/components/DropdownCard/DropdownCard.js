@@ -2,7 +2,7 @@ import React from "react";
 import './dropdownCard.scss';
 const DropdownCard = (props) => {
   
-  const {title, listProductVersions} = props;
+  const {title, listProductVersions, handleClickItem} = props;
   const [show, setShow] = React.useState(false);
 
   const handleClick = () => {
@@ -35,7 +35,7 @@ const DropdownCard = (props) => {
                     {
                     listProductVersions.map((productVersion, index)=>{
                         return (
-                            <li class="list-group-item" key={"concentracion-"+index}>
+                            <li class="list-group-item" key={"concentracion-"+index} onClick={handleClickItem}>
                                 <strong>{productVersion.concentracion}</strong>
                             </li>
                         );

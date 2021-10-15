@@ -3,8 +3,11 @@ import TitleContainer from "../../components/TitleContainer/TitleContainer";
 import SelectDropdown from "../../components/SelectDropdown/SelectDropdown";
 import CommentsCard from "../../components/CommentsCard/CommentsCard";
 import SeeMoreButton from "../../components/SeeMoreButton/SeeMoreButton";
+import { useHistory } from "react-router";
+import * as ROUTES from "../../routes/routes";
 
 const StorePlaces = () => {
+  const history = useHistory();
   const [selectedDepartment, setSelectedDepartment]  = React.useState(-1);
   const [selectedProvince, setSelectedProvince]  = React.useState(-1);
   const [selectedDistrict, setSelectedDistrict]  = React.useState(-1);  
@@ -64,7 +67,7 @@ const StorePlaces = () => {
   ]);
 
   const handleClick = () => {
-      console.log("aceptar");
+      history.push(ROUTES.STORERESULT);
   }
   return (
     <>

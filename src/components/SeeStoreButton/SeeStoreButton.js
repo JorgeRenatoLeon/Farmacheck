@@ -7,7 +7,7 @@ const SeeStoreButton = (props) => {
 
     return (
         <div name="SeeMoreStoresButton" className="container">
-            <button type="button" className="see-more-container" onClick={clickFunction.bind(this)}>
+            <button type="button" className="see-store-container" onClick={clickFunction.bind(this)}>
                 Ver lugares de compra
             </button>
         </div>

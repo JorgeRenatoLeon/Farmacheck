@@ -2,8 +2,11 @@ import React from "react";
 import TitleContainer from "../../components/TitleContainer/TitleContainer";
 import DropdownCard from "../../components/DropdownCard/DropdownCard";
 import CommentsCard from "../../components/CommentsCard/CommentsCard";
+import { useHistory } from "react-router";
+import * as ROUTES from "../../routes/routes";
 
 const SearchProduct = () => {
+  const history = useHistory();
   
   const [listProductOptions, setListProductOptions] = React.useState([
     {
@@ -35,6 +38,9 @@ const SearchProduct = () => {
       ]
     }
   ]);
+  const handleClickItem = () => {
+    history.push(ROUTES.PRODUCTRESULT);
+  }
 
   return (
     <>
@@ -45,6 +51,7 @@ const SearchProduct = () => {
               key={"cardPV-"+index}
               title={productOption.presentacion}
               listProductVersions={productOption.concentraciones}
+              handleClickItem={handleClickItem}
             />
           );
         })}

@@ -4,9 +4,11 @@ import ItemProduct from "../../components/ItemProduct/ItemProduct";
 import CommentsCard from "../../components/CommentsCard/CommentsCard";
 import SeeStoreButton from "../../components/SeeStoreButton/SeeStoreButton";
 import "./productResult.scss";
+import { useHistory } from "react-router";
+import * as ROUTES from "../../routes/routes";
 
 const ProductResult = () => {
-  
+  const history = useHistory();
   const [listProductOptions, setListProductOptions] = React.useState([
     {
       laboratorio: "Merc Sharp",
@@ -22,7 +24,7 @@ const ProductResult = () => {
   ]);
 
   const handleClick = () => {
-    console.log("hola");
+    history.push(ROUTES.STOREPLACES);
   }
 
   return (
