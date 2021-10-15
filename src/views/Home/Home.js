@@ -1,17 +1,19 @@
 import React from "react";
-// import { useHistory } from "react-router";
-// import * as ROUTES from "../../routes/routes";
+import { useHistory } from "react-router";
+import * as ROUTES from "../../routes/routes";
 import Logo from "../../assets/img/logo.jpg"
 import Information from "../../components/Information/Information"
 
 import './home.scss';
 
 const Home = () => {
-  // const history = useHistory();
+  const history = useHistory();
 
   setTimeout(() => {
-    // history.push(ROUTES.SPLASHSCREEN);
     setShowInfo(true);
+    setTimeout(() => {
+      history.push(ROUTES.SEARCH);
+    }, 2500);
   }, 2500);
   
   const [showInfo, setShowInfo] = React.useState(false);
