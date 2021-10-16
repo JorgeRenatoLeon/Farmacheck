@@ -1,59 +1,71 @@
 import React from "react";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import SeeMoreButton from "../../components/SeeMoreButton/SeeMoreButton";
-// import { useHistory } from "react-router";
-// import * as ROUTES from "../../routes/routes";
+import { useHistory } from "react-router";
+import * as ROUTES from "../../routes/routes";
 import services from "../../services/apiProduct";
 
 import './search.scss';
 
 const Search = () => {
-    // const history = useHistory();
+    const history = useHistory();
 
     // setTimeout(() => {
-    //     history.push(ROUTES.SPLASHSCREEN);
+        // history.push(ROUTES.SPLASHSCREEN);
     // }, 2500);
 
     const [searchString, setSearchString] = React.useState("");
 
     const [page, setPage] = React.useState(1);
     const [loading, setLoading] = React.useState(false);
+    const [total, setTotal] = React.useState(0);
 
-    const [products, setProducts] = React.useState([
-        "Arcalion",
-        "Arcobax",
-        "Arcodex",
-        "Arcoflam",
-        "Arcolane"
-    ]);
+    const [products, setProducts] = React.useState([]);
     
-    function search(word, pageNumber) {
-        services
+    async function search(word, pageNumber) {
+        var results = []
+        await services
             .searchProducts(pageNumber, 10, word)
             .then((response) => {
-                console.log(response)
                 setLoading(false);
-                return response.precios;
+                setTotal(response.data.total);
+                results = response.data.productos ? response.data.productos : [];
             })
             .catch((e) => {
                 console.log(e);
                 setLoading(false);
-                return [];
             });
+        return results;
     }
 
-    function handleSearch(word){
+    async function  handleSearch(word){
         setSearchString(word)
         if(word.length >= 3){
-            setProducts(search(word, page));
+            var results = await search(word, 1);
+            setPage(1)
+            setProducts(results);
         }
     }
 
-    function moreResults(){
+    async function moreResults(){
         setLoading(true);
-        var newPage = search(searchString, page + 1 );
+        var newPage = await search(searchString, page + 1 );
         setPage(page+1)
         setProducts(products.concat(newPage))
+    }
+
+    function goToDetails(product){
+        console.log("goToDetails")
+        history.push(ROUTES.SEARCHPRODUCTS, {product: product});
+    }
+
+    function visible(statement){
+        if(statement){
+            return {
+                display: "none"
+            }
+        }
+        else return null
     }
 
     return (
@@ -75,8 +87,8 @@ const Search = () => {
                 </div>
             </div>
 
-            <div className="results-info">
-                {"Total de resultados: " + products.length}
+            <div className="results-info" style={visible(total===0)}>
+                {"Total de resultados: " + total}
             </div>
 
             <div className="results-container">
@@ -84,13 +96,14 @@ const Search = () => {
                 return (
                     <ProductCard 
                         key={"cardP-"+index}
-                        title={product}
+                        title={product.producto}
+                        clickFunction={goToDetails}
                     />
                 );
                 })}
-            </div>
 
-            <SeeMoreButton title="Ver más" clickFunction={moreResults} disabled={loading}/>
+                <SeeMoreButton title="Ver más" clickFunction={moreResults} visible={visible(loading || products.length===0 || products.length===total)}/>
+            </div>
         </div>
     );
 };

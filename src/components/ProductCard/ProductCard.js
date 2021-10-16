@@ -11,10 +11,10 @@ const ProductCard = (props) => {
     //     history.push(ROUTES.SPLASHSCREEN);
     // }, 2500);
   
-    const { title } = props;
+    const { title, clickFunction } = props;
 
     return (
-        <div name="ProductCard" className="product-card-container">
+        <div name="ProductCard" className="product-card-container" onClick={() => clickFunction(title)}>
             {title}
         </div>
     );

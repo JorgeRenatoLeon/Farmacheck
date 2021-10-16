@@ -4,6 +4,7 @@
 .search-container {
     background-color: #eef0ef;
     min-height: 100vh;
+    max-height: 100vh;
     display: flex;
     flex-direction: column;
     align-content: center;
@@ -62,9 +63,16 @@
     .results-container{
         padding: 20px;
         padding-top: 0;
+        max-height: calc(100vh - 143px);
+        overflow: auto;
 
         .product-card-container:first-of-type {
             margin: 0;
+        }
+
+        .see-more-button-container {
+            margin-top: 20px;
+            padding: 0;
         }
     }
 
