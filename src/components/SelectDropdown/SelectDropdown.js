@@ -1,8 +1,9 @@
 import React from "react";
-import './dropdownCard.scss';
-const DropdownCard = (props) => {
+import './selectDropdown.scss';
+
+const SelectDropdown = (props) => {
   
-  const {title, listProductVersions, handleClickItem} = props;
+  const {selectName, idSelected, listItems, handleClickList} = props;
   const [show, setShow] = React.useState(false);
 
   const handleClick = () => {
@@ -11,32 +12,32 @@ const DropdownCard = (props) => {
   }
 
   return (                  
-    <div class="accordion dropdown-product" id={"accordion-"+title}>
+    <div class="accordion dropdown-product" id={"accordion-"+idSelected}>
         <div class="accordion-item ">
-            <h2 class="accordion-header" id={"headingOne"+title}>
+            <h2 class="accordion-header" id={"headingOne"+idSelected}>
                 <button 
                     class={show?"accordion-button dropdown-container":"accordion-button collapsed dropdown-container"} 
                     onClick={handleClick} 
                     type="button" 
                     data-bs-toggle="collapse" 
-                    data-bs-target={"#collapseOne-"+title} 
+                    data-bs-target={"#collapseOne-"+idSelected} 
                     aria-expanded={show?"true":"false"} 
-                    aria-controls={"collapseOne-"+title} 
+                    aria-controls={"collapseOne-"+idSelected} 
                 >
-                    {title}
+                    {idSelected>=0?listItems[idSelected].name:selectName}
                 </button>
             </h2>
-            <div id={"collapseOne-"+title}  
+            <div id={"collapseOne-"+idSelected}  
                 class={show?"accordion-collapse collapse show":"accordion-collapse collapse" }
-                aria-labelledby={"headingOne"+title} 
-                data-bs-parent={"#accordion-"+title}>
+                aria-labelledby={"headingOne"+idSelected} 
+                data-bs-parent={"#accordion-"+idSelected}>
                 <div className="accordion-body">
                     <ul class="list-group">
                     {
-                    listProductVersions.map((productVersion, index)=>{
+                    listItems.map((item, index)=>{
                         return (
-                            <li class="list-group-item" key={"concentracion-"+index} onClick={handleClickItem}>
-                                <strong>{productVersion.concentracion}</strong>
+                            <li class="list-group-item" onClick={()=>handleClickList(item.id)} key={"concentracion-"+index}>
+                                <strong>{item.name}</strong>
                             </li>
                         );
                     })
@@ -49,4 +50,4 @@ const DropdownCard = (props) => {
   );
 };
 
-export default DropdownCard;
+export default SelectDropdown;

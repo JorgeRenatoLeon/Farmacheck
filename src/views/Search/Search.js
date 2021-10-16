@@ -53,6 +53,10 @@ const Search = () => {
         setPage(page+1)
         setProducts(products.concat(newPage))
     }
+    
+    const handleClick = () =>{
+        history.push(ROUTES.SEARCHPRODUCTS);
+    }
 
     function goToDetails(product){
         console.log("goToDetails")
