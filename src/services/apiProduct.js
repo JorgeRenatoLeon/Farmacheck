@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const API_URL = 
-"http://localhost:9080/buscador-precios/";
-// "http://44.197.85.123:9080/buscador-precios/";
+// "http://localhost:9080/buscador-precios/";
+"http://44.197.85.123:9080/buscador-precios/";
 
 const searchProducts = (firstResult, maxResults, producto) => {
     const obj = {
@@ -11,7 +11,6 @@ const searchProducts = (firstResult, maxResults, producto) => {
         maxResults,
         producto
     }
-    console.log(obj)
     return axios.post(
       API_URL + "productos",
       obj,

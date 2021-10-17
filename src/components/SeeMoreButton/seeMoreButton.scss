@@ -1,9 +1,10 @@
 @import '../../sassStyles/variables';
 
-.see-more-container{
+.see-more-button-container{
     padding: 20px;
     margin-top: auto;
     text-align: center;
+    display: grid;
 
     .btn-primary{
         font-family: 'Helvetica';
