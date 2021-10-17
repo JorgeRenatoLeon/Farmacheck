@@ -45,36 +45,7 @@ const SearchProduct = () => {
     setListProductOptions(listProductOptions.concat(newPage))
   }
   
-  const [listProductOptions, setListProductOptions] = React.useState([
-    {
-      presentacion: "Tableta",
-      concentraciones: [
-        {
-          concentracion: "120 mg"
-        },
-        {
-          concentracion: "90 mg"
-        },
-        {
-          concentracion: "60 mg"
-        },
-      ]
-    },
-    {
-      presentacion: "Inyectable",
-      concentraciones: [
-        {
-          concentracion: "120 mg"
-        },
-        {
-          concentracion: "90 mg"
-        },
-        {
-          concentracion: "60 mg"
-        },
-      ]
-    }
-  ]);
+  const [listProductOptions, setListProductOptions] = React.useState([]);
 
   const handleClickItem = (productOption, productVersion) => {
     var routeState = {
@@ -97,6 +68,9 @@ const SearchProduct = () => {
   return (
     <>
       <TitleContainer product={location.state === undefined || location.state.product === undefined ? '' : location.state.product}/>
+        <div className="results-info" style={visible(total===0)}>
+          {"Total de resultados: " + total}
+        </div>
         {listProductOptions.map((productOption, index)=>{
           return (
             <DropdownCard 
