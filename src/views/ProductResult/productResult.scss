@@ -1,4 +1,11 @@
 @import '../../sassStyles/variables';
+
+.products-results-container{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
 .p-text{
     color: $gray-dark;
     margin-left: 20px;

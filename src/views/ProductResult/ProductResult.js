@@ -3,8 +3,10 @@ import TitleContainer from "../../components/TitleContainer/TitleContainer";
 import ItemProduct from "../../components/ItemProduct/ItemProduct";
 import CommentsCard from "../../components/CommentsCard/CommentsCard";
 import SeeStoreButton from "../../components/SeeStoreButton/SeeStoreButton";
+import SeeMoreButton from "../../components/SeeMoreButton/SeeMoreButton";
 import "./productResult.scss";
-import { useHistory } from "react-router";
+import { useHistory, useLocation } from "react-router";
+import services from "../../services/apiProduct";
 import * as ROUTES from "../../routes/routes";
 
 const ProductResult = () => {
@@ -22,14 +24,64 @@ const ProductResult = () => {
       precio: 8.00,
     }
   ]);
+  const location = useLocation();
+
+  const [page, setPage] = React.useState(1);
+  const [total, setTotal] = React.useState(0);
+
+  React.useEffect(() => {
+    if(location.state === undefined || location.state.product === undefined || location.state.productOption === undefined || location.state.productVersion === undefined) 
+      history.push(ROUTES.SEARCH);
+    else
+      iniSearch();
+  }, [location, history]);
+
+  async function iniSearch(){
+    var results = await search(location.state.product, location.state.productOption, location.state.productVersion, 1);
+    console.log(results)
+    setListProductOptions(results);
+  }
+  
+  async function search(product, productOption, productVersion, pageNumber) {
+    var results = []
+    await services
+      .searchProductPrices(pageNumber, 3, product, productOption, productVersion)
+      .then((response) => {
+        setTotal(response.data.total);
+        results = response.data.precios ? response.data.precios : [];
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+    return results;
+  }
+
+  async function moreResults(){
+    var newPage = await search(location.state.product, page + 1 );
+    setPage(page+1)
+    setListProductOptions(listProductOptions.concat(newPage))
+  }
 
   const handleClick = () => {
     history.push(ROUTES.STOREPLACES);
   }
 
+  function visible(statement){
+      if(statement){
+          return {
+              display: "none"
+          }
+      }
+      else return null
+  }
+
   return (
-    <>
-      <TitleContainer product="Arcoxia"  quantity="90mg"  concentration="Tableta"/>
+    <div className="products-results-container">
+      <TitleContainer
+        product={location.state === undefined || location.state.product === undefined ? '' : location.state.product}
+        quantity={location.state === undefined || location.state.productOption === undefined ? '' : location.state.productOption}
+        concentration={location.state === undefined || location.state.productVersion === undefined ? '' : location.state.productVersion}
+      />
       <div className="container">
         <p className="p-text">*Precios promedio referenciales</p>
       </div>
@@ -44,8 +96,9 @@ const ProductResult = () => {
           </>
         )
       })}
+      <SeeMoreButton title="Ver más" clickFunction={moreResults} visible={visible( listProductOptions.length===0 || listProductOptions.length===total)}/>
       <CommentsCard/>
-    </>
+    </div>
   );
 };
 

@@ -22,7 +22,7 @@ const Search = () => {
     async function search(word, pageNumber) {
         var results = []
         await services
-            .searchProducts(pageNumber, 10, word)
+            .searchProducts(pageNumber, 8, word)
             .then((response) => {
                 setLoading(false);
                 setTotal(response.data.total);
@@ -83,24 +83,27 @@ const Search = () => {
                 </div>
             </div>
 
-            <div className="results-info" style={visible(total===0)}>
-                {"Total de resultados: " + total}
-            </div>
+            <div className="content-container">
 
-            <div className="results-container">
-                {products.map((product, index)=>{
-                return (
-                    <ProductCard 
-                        key={"cardP-"+index}
-                        title={product.producto}
-                        clickFunction={goToDetails}
-                    />
-                );
-                })}
+                <div className="results-info" style={visible(total===0)}>
+                    {"Total de resultados: " + total}
+                </div>
+                
+                <div className="results-container">
+                    {products.map((product, index)=>{
+                    return (
+                        <ProductCard 
+                            key={"cardP-"+index}
+                            title={product.producto}
+                            clickFunction={goToDetails}
+                        />
+                    );
+                    })}
 
-                <SeeMoreButton title="Ver más" clickFunction={moreResults} visible={visible(loading || products.length===0 || products.length===total)}/>
+                    <SeeMoreButton title="Ver más" clickFunction={moreResults} visible={visible(loading || products.length===0 || products.length===total)}/>
+                </div>
+                <CommentsCard/>
             </div>
-            <CommentsCard/>
         </div>
     );
 };
