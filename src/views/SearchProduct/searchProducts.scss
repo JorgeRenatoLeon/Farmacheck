@@ -1,0 +1,16 @@
+@import '../../sassStyles/variables';
+
+.search-products-details-container {
+    background-color: #eef0ef;
+    min-height: 100vh;
+    max-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+.results-info{
+    padding: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}

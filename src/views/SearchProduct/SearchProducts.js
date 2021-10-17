@@ -7,6 +7,9 @@ import * as ROUTES from "../../routes/routes";
 import services from "../../services/apiProduct";
 import SeeMoreButton from "../../components/SeeMoreButton/SeeMoreButton";
 
+import './searchProducts.scss';
+import '../viewsStyle.scss';
+
 const SearchProduct = () => {
   const history = useHistory();
   const location = useLocation();
@@ -28,7 +31,7 @@ const SearchProduct = () => {
   async function search(word, pageNumber) {
     var results = []
     await services
-      .searchProductDetails(pageNumber, 10, word)
+      .searchProductDetails(pageNumber, 8, word)
       .then((response) => {
         setTotal(response.data.total);
         results = response.data.presentaciones ? response.data.presentaciones : [];
@@ -66,24 +69,27 @@ const SearchProduct = () => {
   }
 
   return (
-    <>
+    <div className="search-products-details-container">
       <TitleContainer product={location.state === undefined || location.state.product === undefined ? '' : location.state.product}/>
-        <div className="results-info" style={visible(total===0)}>
+      <div className="content-container">
+        <div className="results-info">
           {"Total de resultados: " + total}
         </div>
-        {listProductOptions.map((productOption, index)=>{
-          return (
-            <DropdownCard 
-              key={"cardPV-"+index}
-              title={productOption.presentacion}
-              listProductVersions={productOption.concentraciones}
-              handleClickItem={handleClickItem}
-            />
-          );
-        })}
-        <SeeMoreButton title="Ver más" clickFunction={moreResults} visible={visible( listProductOptions.length===0 || listProductOptions.length===total)}/>
-      <CommentsCard/>
-    </>
+          {listProductOptions.map((productOption, index)=>{
+            return (
+              <DropdownCard 
+                key={"cardPV-"+index}
+                title={productOption.presentacion}
+                listProductVersions={productOption.concentraciones}
+                handleClickItem={handleClickItem}
+              />
+            );
+          })}
+          <SeeMoreButton title="Ver más" clickFunction={moreResults} visible={visible( listProductOptions.length===0 || listProductOptions.length===total)}/>
+        <CommentsCard/>
+      </div>
+
+    </div>
   );
 };
 

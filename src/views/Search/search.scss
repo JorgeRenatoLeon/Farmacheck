@@ -60,11 +60,17 @@
         font-weight: bold;
     }
 
+    .content-container {
+        max-height: calc(100vh - 85px);
+        min-height: calc(100vh - 85px);
+        display: flex;
+        flex-direction: column;
+        overflow: auto;
+    }
+
     .results-container{
         padding: 20px;
         padding-top: 0;
-        max-height: calc(100vh - 228px);
-        overflow: auto;
 
         .product-card-container:first-of-type {
             margin: 0;
