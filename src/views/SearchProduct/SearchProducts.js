@@ -8,6 +8,7 @@ import services from "../../services/apiProduct";
 import SeeMoreButton from "../../components/SeeMoreButton/SeeMoreButton";
 
 import './searchProducts.scss';
+import '../viewsStyle.scss';
 
 const SearchProduct = () => {
   const history = useHistory();
@@ -47,36 +48,7 @@ const SearchProduct = () => {
     setListProductOptions(listProductOptions.concat(newPage))
   }
   
-  const [listProductOptions, setListProductOptions] = React.useState([
-    {
-      presentacion: "Tableta",
-      concentraciones: [
-        {
-          concentracion: "120 mg"
-        },
-        {
-          concentracion: "90 mg"
-        },
-        {
-          concentracion: "60 mg"
-        },
-      ]
-    },
-    {
-      presentacion: "Inyectable",
-      concentraciones: [
-        {
-          concentracion: "120 mg"
-        },
-        {
-          concentracion: "90 mg"
-        },
-        {
-          concentracion: "60 mg"
-        },
-      ]
-    }
-  ]);
+  const [listProductOptions, setListProductOptions] = React.useState([]);
 
   const handleClickItem = (productOption, productVersion) => {
     var routeState = {
@@ -99,18 +71,24 @@ const SearchProduct = () => {
   return (
     <div className="search-products-details-container">
       <TitleContainer product={location.state === undefined || location.state.product === undefined ? '' : location.state.product}/>
-        {listProductOptions.map((productOption, index)=>{
-          return (
-            <DropdownCard 
-              key={"cardPV-"+index}
-              title={productOption.presentacion}
-              listProductVersions={productOption.concentraciones}
-              handleClickItem={handleClickItem}
-            />
-          );
-        })}
-        <SeeMoreButton title="Ver más" clickFunction={moreResults} visible={visible( listProductOptions.length===0 || listProductOptions.length===total)}/>
-      <CommentsCard/>
+      <div className="content-container">
+        <div className="results-info">
+          {"Total de resultados: " + total}
+        </div>
+          {listProductOptions.map((productOption, index)=>{
+            return (
+              <DropdownCard 
+                key={"cardPV-"+index}
+                title={productOption.presentacion}
+                listProductVersions={productOption.concentraciones}
+                handleClickItem={handleClickItem}
+              />
+            );
+          })}
+          <SeeMoreButton title="Ver más" clickFunction={moreResults} visible={visible( listProductOptions.length===0 || listProductOptions.length===total)}/>
+        <CommentsCard/>
+      </div>
+
     </div>
   );
 };

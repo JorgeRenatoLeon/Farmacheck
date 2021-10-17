@@ -24,10 +24,10 @@ const ProductResult = () => {
       precio: 8.00,
     }
   ]);
+  const [total, setTotal] = React.useState(0);
   const location = useLocation();
 
   const [page, setPage] = React.useState(1);
-  const [total, setTotal] = React.useState(0);
 
   React.useEffect(() => {
     if(location.state === undefined || location.state.product === undefined || location.state.productOption === undefined || location.state.productVersion === undefined) 
@@ -82,9 +82,12 @@ const ProductResult = () => {
         quantity={location.state === undefined || location.state.productOption === undefined ? '' : location.state.productOption}
         concentration={location.state === undefined || location.state.productVersion === undefined ? '' : location.state.productVersion}
       />
-      <div className="container">
-        <p className="p-text">*Precios promedio referenciales</p>
+      <div className="text-first">
+        {"Total de resultados: " + total}
       </div>
+      <div className="text-secondary">
+        *Precios promedio referenciales
+      </div>      
       {listProductOptions.map((item)=>{
         return(
           <>          
@@ -92,7 +95,7 @@ const ProductResult = () => {
             title={item.marca} 
             subtitle={item.laboratorio} 
             price={item.precio}/>
-          <SeeStoreButton clickFunction={handleClick} />
+          {/*<SeeStoreButton clickFunction={handleClick} />*/}
           </>
         )
       })}
