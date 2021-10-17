@@ -9,6 +9,7 @@
     justify-content: center;
     align-content: center;
     animation: home-fade 1.5s;
+    color: black;
 
     .logo{
         text-align: center;
@@ -18,20 +19,20 @@
         display: flex;
         align-items: center;
         justify-content: center;
-    
-        .logo-text{
-            text-align: center;
-            font-size: 50px;
-            font-weight: 800;
-            margin-right: 10px;
-        }
     }
 
     .text-description-container{
+        margin-top: 15px;
+
         .text-description{
             text-align: center;
             font-style: italic;
         }
+    }
+
+    .terms-and-conditions-container {
+        margin-top: 25px;
+        text-align: center;
     }
     
     .bottom-logo-icon{

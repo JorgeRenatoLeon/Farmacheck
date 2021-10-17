@@ -7,6 +7,7 @@ import ProductResult from "../../views/ProductResult/ProductResult";
 import SearchProduct from "../../views/SearchProduct/SearchProducts";
 import StorePlaces from "../../views/StorePlaces/StorePlaces";
 import StoreResult from "../../views/StoreResult/StoreResult";
+import TermsAndConditions from "../../views/TermsAndConditions/TermsAndConditions";
 
 const AppRouter = () => {
 
@@ -14,6 +15,7 @@ const AppRouter = () => {
         <BrowserRouter>
             <Switch>
                 <Route exact path={ROUTES.HOME} component={Home}/>
+                <Route exact path={ROUTES.TERMSANDCONDITIONS} component={TermsAndConditions}/>
                 <Route exact path={ROUTES.SEARCH} component={Search}/>
                 <Route exact path={ROUTES.PRODUCTRESULT} component={ProductResult}/>
                 <Route exact path={ROUTES.SEARCHPRODUCTS} component={SearchProduct}/>
