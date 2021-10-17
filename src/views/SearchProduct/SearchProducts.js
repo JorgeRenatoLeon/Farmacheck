@@ -7,6 +7,8 @@ import * as ROUTES from "../../routes/routes";
 import services from "../../services/apiProduct";
 import SeeMoreButton from "../../components/SeeMoreButton/SeeMoreButton";
 
+import './searchProducts.scss';
+
 const SearchProduct = () => {
   const history = useHistory();
   const location = useLocation();
@@ -95,7 +97,7 @@ const SearchProduct = () => {
   }
 
   return (
-    <>
+    <div className="search-products-details-container">
       <TitleContainer product={location.state === undefined || location.state.product === undefined ? '' : location.state.product}/>
         {listProductOptions.map((productOption, index)=>{
           return (
@@ -109,7 +111,7 @@ const SearchProduct = () => {
         })}
         <SeeMoreButton title="Ver más" clickFunction={moreResults} visible={visible( listProductOptions.length===0 || listProductOptions.length===total)}/>
       <CommentsCard/>
-    </>
+    </div>
   );
 };
 

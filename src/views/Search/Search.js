@@ -4,9 +4,9 @@ import SeeMoreButton from "../../components/SeeMoreButton/SeeMoreButton";
 import { useHistory } from "react-router";
 import * as ROUTES from "../../routes/routes";
 import services from "../../services/apiProduct";
+import CommentsCard from "../../components/CommentsCard/CommentsCard";
 
 import './search.scss';
-import CommentsCard from "../../components/CommentsCard/CommentsCard";
 
 const Search = () => {
     const history = useHistory();
