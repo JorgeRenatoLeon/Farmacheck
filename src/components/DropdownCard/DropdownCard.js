@@ -35,7 +35,7 @@ const DropdownCard = (props) => {
                     {
                     listProductVersions.map((productVersion, index)=>{
                         return (
-                            <li class="list-group-item" key={"concentracion-"+index} onClick={handleClickItem}>
+                            <li class="list-group-item" key={"concentracion-"+index} onClick={() => { handleClickItem(title, productVersion.concentracion)}}>
                                 <strong>{productVersion.concentracion}</strong>
                             </li>
                         );

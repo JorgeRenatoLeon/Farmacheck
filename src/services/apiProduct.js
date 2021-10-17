@@ -19,7 +19,7 @@ const searchProducts = (firstResult, maxResults, producto) => {
 
 const searchProductDetails = (firstResult, maxResults, producto) => {
     return axios.post(
-        API_URL + "productos",
+        API_URL + "detalle",
         {
             keyCode: "aY0Jy2T6b6LLvMfBzI2pI5dPAfcqyvK",
             firstResult,
@@ -31,7 +31,7 @@ const searchProductDetails = (firstResult, maxResults, producto) => {
 
 const searchProductPrices = (firstResult, maxResults, producto, presentacion, concentracion) => {
     return axios.post(
-        API_URL + "productos",
+        API_URL + "precios",
         {
             keyCode: "aY0Jy2T6b6LLvMfBzI2pI5dPAfcqyvK",
             firstResult,
