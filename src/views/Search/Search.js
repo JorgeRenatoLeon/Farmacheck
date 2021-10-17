@@ -6,13 +6,10 @@ import * as ROUTES from "../../routes/routes";
 import services from "../../services/apiProduct";
 
 import './search.scss';
+import CommentsCard from "../../components/CommentsCard/CommentsCard";
 
 const Search = () => {
     const history = useHistory();
-
-    // setTimeout(() => {
-        // history.push(ROUTES.SPLASHSCREEN);
-    // }, 2500);
 
     const [searchString, setSearchString] = React.useState("");
 
@@ -53,13 +50,8 @@ const Search = () => {
         setPage(page+1)
         setProducts(products.concat(newPage))
     }
-    
-    const handleClick = () =>{
-        history.push(ROUTES.SEARCHPRODUCTS);
-    }
 
     function goToDetails(product){
-        console.log("goToDetails")
         history.push(ROUTES.SEARCHPRODUCTS, {product: product});
     }
 
@@ -108,6 +100,7 @@ const Search = () => {
 
                 <SeeMoreButton title="Ver más" clickFunction={moreResults} visible={visible(loading || products.length===0 || products.length===total)}/>
             </div>
+            <CommentsCard/>
         </div>
     );
 };
