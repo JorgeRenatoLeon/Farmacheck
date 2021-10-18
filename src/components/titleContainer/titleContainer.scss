@@ -9,20 +9,49 @@
     margin-bottom: 20px;
 }
 
+.card-title {
+    width: calc(100vw - 68px);
+    display: flex;
+    padding: 0;
+}
+
 .card-title-titleContainer{
     text-transform: uppercase;
     color: white;
     padding-bottom: 0px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .card-title-titleContainer-quantity{
     color: white;
     padding-bottom: 0px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.card-title-titleContainer-concentration{
+    text-transform: uppercase;
+    color: white;
+    padding-bottom: 0px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.icon-container{
+    max-width: fit-content;
+    cursor: pointer;
 }
 
 .icon-title{    
+    width: fit-content;
     font-size: 20;
     margin-right: 10px;
     color: white;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
