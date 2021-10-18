@@ -12,9 +12,17 @@
     margin-top: auto;
 }
 
+.icon-style {
+    color: $primary;
+    margin-top: -2px;
+    margin-right: 5px;
+}
+
 .first-text {
     color: $gray-dark;
     margin-bottom: 0px;
+    display: flex;
+    justify-content: center;
 
 }
 .second-text {
