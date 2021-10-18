@@ -11,19 +11,7 @@ import * as ROUTES from "../../routes/routes";
 
 const ProductResult = () => {
   const history = useHistory();
-  const [listProductOptions, setListProductOptions] = React.useState([
-    {
-      laboratorio: "Merc Sharp",
-      marca: "Arcoxia",
-      precio: 8.27,
-
-    },
-    {
-      laboratorio: "Perulab",
-      marca: "Exotib",
-      precio: 8.00,
-    }
-  ]);
+  const [listProductOptions, setListProductOptions] = React.useState([]);
   const [total, setTotal] = React.useState(0);
   const location = useLocation();
 
