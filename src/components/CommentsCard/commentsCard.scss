@@ -28,5 +28,8 @@
 .second-text {
     color: $primary;
     margin-bottom: 0px;
-    text-decoration: underline $primary; 
+    text-decoration: none $primary; 
+}
+.second-text:hover {
+    color: $primary;
 }

@@ -63,14 +63,14 @@ const TitleContainer = (props) => {
                 <strong>|</strong>
                 {quantity? quantity:""}
               </div>
-              <span className="tooltiptext quantity">{quantity}</span>
+              <span className="tooltiptext">{quantity}</span>
             </div>  
             <div className="card-title-titleContainer-concentration tooltip-container" style={titleWidth("concentration")} data-toggle="tooltip-concentration" data-placement="top" title={concentration}>
               <div className="title-text-container">
                 <strong>|</strong>
                 {concentration? concentration:""}
               </div>
-              <span className="tooltiptext concentration">{concentration}</span>
+              <span className="tooltiptext">{concentration}</span>
             </div>
           </div>          
         </div>        
