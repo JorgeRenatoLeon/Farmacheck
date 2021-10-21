@@ -1,5 +1,5 @@
 export const HOME = "/inicio";
-export const TERMSANDCONDITIONS = "/terms-and-contions";
+export const TERMSANDCONDITIONS = "/terms-and-conditions";
 export const SEARCH = "/buscar";
 export const SEARCHPRODUCTS = "/buscar-producto";
 export const PRODUCTRESULT = "/detalle-producto";
