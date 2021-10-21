@@ -11,7 +11,7 @@ const CommentsCard = (props) => {
           <Link to={ROUTES.TERMSANDCONDITIONS} ><div className="icon-style"><i className="bi bi-exclamation-circle-fill"></i></div></Link>
           Envianos tus comentarios a
         </p> 
-        <p className="second-text">info@farmacheck.pe</p>       
+        <a className="second-text" href="mailto:info@farmacheck.pe">info@farmacheck.pe</a>       
     </div>  
   );
 };

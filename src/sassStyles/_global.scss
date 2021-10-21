@@ -7,7 +7,7 @@ body {
     min-height: 100vh;
     position: relative;
     margin: 0;
-    background-color: $secondary;
+    background-color: $secondary!important;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
