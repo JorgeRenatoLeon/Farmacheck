@@ -47,9 +47,31 @@ const TitleContainer = (props) => {
             </div>
           </div>
           <div className="col card-title">
-            <div className="card-title-titleContainer" style={titleWidth("product")} data-toggle="tooltip" data-placement="top" title={product}>{product}</div>
-            <div className="card-title-titleContainer-quantity" style={titleWidth("quantity")} data-toggle="tooltip-quantity" data-placement="top" title={quantity}>{quantity? " | "+quantity:""}</div>  
-            <div className="card-title-titleContainer-concentration" style={titleWidth("concentration")} data-toggle="tooltip-concentration" data-placement="top" title={concentration}>{concentration? " | "+concentration:""}</div>
+            <div
+              className={quantity===undefined || concentration===undefined ?
+                'card-title-titleContainer tooltip-container' : 'card-title-titleContainer tooltip-container small-tooltip'}
+              style={titleWidth("product")}
+              data-toggle="tooltip" data-placement="top" title={product}
+            >
+              <div className="title-text-container">
+                {product}
+              </div>
+              <span className="tooltiptext">{product}</span>
+            </div>
+            <div className="card-title-titleContainer-quantity tooltip-container" style={titleWidth("quantity")} data-toggle="tooltip-quantity" data-placement="top" title={quantity}>
+              <div className="title-text-container">
+                <strong>|</strong>
+                {quantity? quantity:""}
+              </div>
+              <span className="tooltiptext quantity">{quantity}</span>
+            </div>  
+            <div className="card-title-titleContainer-concentration tooltip-container" style={titleWidth("concentration")} data-toggle="tooltip-concentration" data-placement="top" title={concentration}>
+              <div className="title-text-container">
+                <strong>|</strong>
+                {concentration? concentration:""}
+              </div>
+              <span className="tooltiptext concentration">{concentration}</span>
+            </div>
           </div>          
         </div>        
       </div>  

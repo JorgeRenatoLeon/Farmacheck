@@ -45,7 +45,7 @@ const ProductResult = () => {
   }
 
   async function moreResults(){
-    var newPage = await search(location.state.product, page + 1 );
+    var newPage = await search(location.state.product, location.state.productOption, location.state.productVersion, page + 1 );
     setPage(page+1)
     setListProductOptions(listProductOptions.concat(newPage))
   }

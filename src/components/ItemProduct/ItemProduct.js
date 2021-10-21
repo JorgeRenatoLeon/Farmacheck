@@ -7,7 +7,7 @@ const ItemProduct = (props) => {
   return (                  
     <div className="container itemProductContainer">
         <div className="row">
-            <div className="col">
+            <div className="col" style={{paddingRight: 0}}>
                 <div className="row">
                     <p className="p-title">{title}</p>
                 </div>

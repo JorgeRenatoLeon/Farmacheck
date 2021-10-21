@@ -6,39 +6,32 @@
     flex-direction: row;
     padding-bottom: 10px;
     padding-left: 10px;
+    padding-right: 10px;
     margin-bottom: 20px;
 }
 
 .card-title {
-    width: calc(100vw - 68px);
+    width: calc(100vw - 78px);
     display: flex;
     padding: 0;
+    position: relative;
 }
 
 .card-title-titleContainer{
     text-transform: uppercase;
     color: white;
     padding-bottom: 0px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
 }
 
 .card-title-titleContainer-quantity{
     color: white;
     padding-bottom: 0px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
 }
 
 .card-title-titleContainer-concentration{
     text-transform: uppercase;
     color: white;
     padding-bottom: 0px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
 }
 
 .icon-container{
@@ -51,7 +44,65 @@
     font-size: 20;
     margin-right: 10px;
     color: white;
+}
+
+.title-text-container{
+    max-width: 100%;
     overflow: hidden;
     white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.tooltip-container {
+    position: relative;
+    overflow: visible;
+
+    strong{
+        margin: 0px 4px;
+    }
+    
+    .tooltiptext {
+        visibility: hidden;
+        width: fit-content;
+        max-width: 80vw;
+        background-color: $gray-dark;
+        color: white;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px;
+        white-space: normal;
+        font-size: .875em;
+
+        /* Position the tooltip */
+        position: absolute;
+        z-index: 1;
+        top: 25px;
+        left: -40px;
+
+        &.quantity{
+            left: -140px;
+            max-width: 160vw;
+        }
+
+        &.concentration{
+            left: -240px;
+            max-width: 160vw;
+        }
+    }
+
+    &.small-tooltip{
+        .tooltiptext {
+            width: 80vw;
+        }
+    }
+
+    &:hover .tooltiptext {
+        visibility: visible;
+    }
+
+    &:active .tooltiptext {
+        visibility: visible;
+    }
+
 }
 
