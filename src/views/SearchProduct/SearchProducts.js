@@ -31,7 +31,7 @@ const SearchProduct = () => {
   async function search(word, pageNumber) {
     var results = []
     await services
-      .searchProductDetails(pageNumber, 6, word)
+      .searchProductDetails(pageNumber, 5, word)
       .then((response) => {
         setTotal(response.data.total);
         results = response.data.presentaciones ? response.data.presentaciones : [];

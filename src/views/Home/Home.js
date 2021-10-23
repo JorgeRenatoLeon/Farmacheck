@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useHistory, useLocation } from "react-router";
 import * as ROUTES from "../../routes/routes";
 import APEPS from "../../assets/svg/APEPS.svg";
-import APESEG from "../../assets/img/APESEG.png";
+import APESEG from "../../assets/svg/APESEG.svg";
 import Farma from "../../assets/svg/Farma.svg";
 import Information from "../../components/Information/Information"
 
@@ -58,10 +58,10 @@ const Home = () => {
                   src={APEPS}
                   alt="apeps" width="120px" height="100px"/>
               </div>
-              <div className="bottom-logo-icon col imgApeseg">
+              <div className="bottom-logo-icon col">
                 <img 
                   src={APESEG}
-                  alt="apeseg" width="120px" height="35px"/>
+                  alt="apeseg" width="120px" height="100px"/>
               </div>
             </div>
           </>

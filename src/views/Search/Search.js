@@ -22,7 +22,7 @@ const Search = () => {
     async function search(word, pageNumber) {
         var results = []
         await services
-            .searchProducts(pageNumber, 6, word)
+            .searchProducts(pageNumber, 5, word)
             .then((response) => {
                 setLoading(false);
                 setTotal(response.data.total);
