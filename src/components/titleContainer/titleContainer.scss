@@ -41,7 +41,6 @@
 
 .icon-title{    
     width: fit-content;
-    font-size: 20;
     margin-right: 10px;
     color: white;
 }
@@ -51,6 +50,7 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    font-weight: 900;
 }
 
 .tooltip-container {
@@ -71,7 +71,7 @@
         border-radius: 6px;
         padding: 5px;
         white-space: normal;
-        font-size: .875em;
+        font-size: 14px;
 
         /* Position the tooltip */
         position: absolute;

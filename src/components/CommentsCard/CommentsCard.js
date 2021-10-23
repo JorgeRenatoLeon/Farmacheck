@@ -9,7 +9,7 @@ const CommentsCard = (props) => {
     <div className="card-comments">         
         <p className="first-text">
           <Link to={ROUTES.TERMSANDCONDITIONS} ><div className="icon-style"><i className="bi bi-exclamation-circle-fill"></i></div></Link>
-          Envianos tus comentarios a
+          Envíanos tus comentarios a
         </p> 
         <a className="second-text" href="mailto:info@farmacheck.pe">info@farmacheck.pe</a>       
     </div>  

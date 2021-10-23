@@ -46,7 +46,7 @@ const Home = () => {
               </div>
               <div className="text-description-container">
                 <div className="text-description">
-                  Tú decides dónde compras tus medicinas al mejor precio
+                  Tú decides dónde compras<br/>tus medicinas al mejor precio
                 </div>
               </div>
             </div>
