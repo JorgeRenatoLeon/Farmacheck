@@ -2,8 +2,8 @@ import React from "react";
 import TitleContainer from "../../components/TitleContainer/TitleContainer";
 import ItemProduct from "../../components/ItemProduct/ItemProduct";
 import CommentsCard from "../../components/CommentsCard/CommentsCard";
-import SeeStoreButton from "../../components/SeeStoreButton/SeeStoreButton";
 import './storeResult.scss';
+import services from "../../services/apiProduct";
 
 const StoreResult = () => {
   
@@ -38,7 +38,8 @@ const StoreResult = () => {
           <ItemProduct 
             title={item.marca} 
             subtitle={item.direccion} 
-            price={item.precio}/>
+            price={item.precio}                     
+          />
           </>
         )
       })}

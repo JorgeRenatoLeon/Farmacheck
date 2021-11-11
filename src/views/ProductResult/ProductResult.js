@@ -2,7 +2,6 @@ import React from "react";
 import TitleContainer from "../../components/TitleContainer/TitleContainer";
 import ItemProduct from "../../components/ItemProduct/ItemProduct";
 import CommentsCard from "../../components/CommentsCard/CommentsCard";
-import SeeStoreButton from "../../components/SeeStoreButton/SeeStoreButton";
 import SeeMoreButton from "../../components/SeeMoreButton/SeeMoreButton";
 import "./productResult.scss";
 import { useHistory, useLocation } from "react-router";
@@ -50,8 +49,14 @@ const ProductResult = () => {
     setListProductOptions(listProductOptions.concat(newPage))
   }
 
-  const handleClick = () => {
-    history.push(ROUTES.STOREPLACES);
+  const handleClick = (productItem) => {
+    var routeState = {
+      productOption: location.state.productOption,
+      productVersion: location.state.productVersion,
+      productBrand:productItem.marca,
+      productLab: productItem.laboratorio,
+    }
+    history.push(ROUTES.STOREPLACES, routeState);
   }
 
   function visible(statement){
@@ -64,7 +69,7 @@ const ProductResult = () => {
   }
 
   return (
-    <div className="products-results-container">
+    <div className="products-results-container" key="ProductResult">
       <TitleContainer
         product={location.state === undefined || location.state.product === undefined ? '' : location.state.product}
         quantity={location.state === undefined || location.state.productOption === undefined ? '' : location.state.productOption}
@@ -76,15 +81,15 @@ const ProductResult = () => {
       <div className="text-secondary">
         *Precios promedio referenciales
       </div>      
-      {listProductOptions.map((item)=>{
-        return(
-          <>          
+      {listProductOptions.map((item, index)=>{
+        return(        
           <ItemProduct 
+            key={"itemProduct"+index}
             title={item.marca} 
             subtitle={item.laboratorio} 
-            price={item.precio}/>
-          {/*<SeeStoreButton clickFunction={handleClick} />*/}
-          </>
+            price={item.precio}            
+            clickFunction={()=>handleClick(item)}    
+          />
         )
       })}
       <SeeMoreButton title="Ver más" clickFunction={moreResults} visible={visible( listProductOptions.length===0 || listProductOptions.length===total)}/>

@@ -9,24 +9,31 @@
     font-weight: 900;
     color: $gray-dark;
     text-transform: uppercase;
-    margin-bottom: 0;
+    margin-bottom: 5px;
 }
 
 .p-price-container{
     text-align: end;
-    line-height: 80px;
 }
 
 .p-subtitle{
     color: $gray-dark;
+    text-transform: lowercase;
     margin-bottom: 0;
-    line-height: 45px;
 }
+
+.p-subtitle:first-letter {
+    text-transform: uppercase;         
+}
+
 
 .p-price{
     font-weight: 900;
     font-size: 23px;
     color: $primary;
     margin-bottom: 0;
-    line-height: 45px;
+}
+.icon-arrow-right{
+    font-size: 30px;
+    color:  $gray-dark;
 }

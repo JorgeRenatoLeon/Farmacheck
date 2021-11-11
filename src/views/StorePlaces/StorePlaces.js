@@ -3,71 +3,71 @@ import TitleContainer from "../../components/TitleContainer/TitleContainer";
 import SelectDropdown from "../../components/SelectDropdown/SelectDropdown";
 import CommentsCard from "../../components/CommentsCard/CommentsCard";
 import SeeMoreButton from "../../components/SeeMoreButton/SeeMoreButton";
-import { useHistory } from "react-router";
+import { useHistory, useLocation } from "react-router";
 import * as ROUTES from "../../routes/routes";
+import services from "../../services/apiProduct";
 
 const StorePlaces = () => {
   const history = useHistory();
-  const [selectedDepartment, setSelectedDepartment]  = React.useState(-1);
-  const [selectedProvince, setSelectedProvince]  = React.useState(-1);
-  const [selectedDistrict, setSelectedDistrict]  = React.useState(-1);  
-  const [listDepartments, setListDepartments] = React.useState([
-    {
-      id: 0,
-      name: "DepaLala",
-      province: [
-        {
-          id: 0,
-          name: "ProvinciaLala1",
-          districts: [
-              {
-                id: 0,
-                name:"distritoLala1-1"
-              },
-              {
-                id: 1,
-                name:"distritoLala1-2"
-              },
-          ]
-        },
-        {
-            id: 1,
-            name: "ProvinciaLala2",
-            districts: [
-                {
-                  id: 0,
-                  name:"distritoLala2-1"
-                },
-                {
-                  id: 1,
-                  name:"distritoLala2-2"
-                },
-            ]
-          }
-        
-      ]
-    },
-    {
-        id: 1,
-        name: "DepaLala2",
-        province: [
-          {
-            id: 0,
-            name: "ProvinciaLala2-2",
-            districts: [
-                {
-                  id: 0,
-                  name:"distritoLala2-2-1"
-                },
-            ]
-          },
-          
-        ]
-      },
-  ]);
+  const location = useLocation();
+  const [selectedDepartment, setSelectedDepartment]  = React.useState("");
+  const [selectedProvince, setSelectedProvince]  = React.useState("");
+  const [listProvincesSelected, setListProvincesSelected] = React.useState([]);
+  const [selectedDistrict, setSelectedDistrict]  = React.useState("");  
+  const [listDistrictsSelected, setListDistrictsSelected] = React.useState([]);
+  const [listDepartments, setListDepartments] = React.useState([]);
+
+  React.useEffect(() => {
+    if(location.state === undefined || location.state.productOption === undefined || location.state.productVersion === undefined) 
+      history.push(ROUTES.SEARCH);
+    else
+      iniSearch();
+  }, [location, history]);
+
+  async function iniSearch(){
+    var results = await search( location.state.productOption, location.state.productVersion, 1, location.state.productBrand, location.state.productLab);    
+    setListDepartments(results);
+  }
+
+  async function search( productOption, productVersion, pageNumber, brand, lab) {
+    var results = [];
+    await services
+      .searchProductPricesByDistricts(pageNumber, 1000, brand, lab, productOption, productVersion)
+      .then((response) => {
+        results = response.data.departamentos ? response.data.departamentos : [];
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+
+    return results;
+  }
+
+  const changeListProvinces = (nameDepartment) => {
+    setSelectedDepartment(nameDepartment);
+    const listProvinces = listDepartments.find((department)=>department.departamento===nameDepartment).provincias;
+    setListProvincesSelected(listProvinces);
+    setListDistrictsSelected([]);
+  }
+
+  const changeListDistricts = (nameProvince) => {
+    setSelectedProvince(nameProvince);
+    const listDistricts = listProvincesSelected.find((province)=>province.provincia===nameProvince).distritos;
+    setListDistrictsSelected(listDistricts);
+  }
 
   const handleClick = () => {
-      history.push(ROUTES.STORERESULT);
+    var routeState = {
+      productOption: location.state.productOption,
+      productVersion: location.state.productVersion,
+      productBrand:location.state.productBrand,
+      productLab: location.state.productLab,
+      productDepartment: selectedDepartment,
+      productDistrict : selectedDistrict,
+      productProvince: selectedProvince,
+
+    }
+    history.push(ROUTES.STORERESULT, routeState);
   }
   return (
     <>
@@ -75,22 +75,29 @@ const StorePlaces = () => {
       <div className="container">
         <p className="p-text">Para mayor precisión sobre los lugares de compra, por favor completa la siguiente información </p>
       </div>
+      {listDepartments.length>0?
       <SelectDropdown 
         selectName="Departamento"
-        idSelected={selectedDepartment} 
+        nameSelected={selectedDepartment} 
         listItems={listDepartments}
-        handleClickList={setSelectedDepartment}/>        
+        handleClickList={changeListProvinces}/>:null}      
+      {listProvincesSelected.length>0?
       <SelectDropdown 
         selectName="Provincia"
-        idSelected={selectedProvince} 
-        listItems={selectedDepartment>=0?listDepartments[selectedDepartment].province:[]}
-        handleClickList={setSelectedProvince}/>
+        nameSelected={selectedProvince} 
+        listItems={listProvincesSelected}
+        handleClickList={changeListDistricts}/>:null}
+      {listDistrictsSelected.length>0?
       <SelectDropdown 
         selectName="Distrito"
-        idSelected={selectedDistrict} 
-        listItems={selectedProvince>=0?listDepartments[selectedDepartment].province[selectedProvince].districts:[]}
-        handleClickList={setSelectedDistrict}/>
-      <SeeMoreButton title="Aceptar" clickFunction={handleClick} disabled={false}/>
+        nameSelected={selectedDistrict} 
+        listItems={listDistrictsSelected}
+        handleClickList={setSelectedDistrict}/>:null}
+      {selectedDistrict.length>0?
+      <SeeMoreButton 
+        title="Aceptar" 
+        clickFunction={handleClick} 
+        disabled={false}/>:null}
       <CommentsCard/>
     </>
   );
