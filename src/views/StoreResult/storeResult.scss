@@ -3,10 +3,13 @@
 .store-results-container{
     background-color: #eef0ef;
     min-height: 100vh;
-    max-height: 100vh;
     display: flex;
     flex-direction: column;
-    align-content: center
+    align-content: center;
+    
+    .items-container .container:last-of-type{
+        padding-bottom: 30px;
+    }
 }
 
 .p-text{

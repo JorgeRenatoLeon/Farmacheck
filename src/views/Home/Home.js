@@ -3,7 +3,7 @@ import { useHistory, useLocation } from "react-router";
 import * as ROUTES from "../../routes/routes";
 import APEPS from "../../assets/svg/APEPS.svg";
 import APESEG from "../../assets/img/APESEGCURVA.png";
-import Farma from "../../assets/svg/Farma.svg";
+import Farma from "../../assets/img/farmacheck.png";
 import Information from "../../components/Information/Information"
 
 import './home.scss';
@@ -42,7 +42,7 @@ const Home = () => {
           <>
             <div className="logo-container">
               <div className="logo">
-                <img src={Farma} alt="logo" width="200px" height="200px"/>
+                <img src={Farma} alt="logo" width="250px" height="80px"/>
               </div>
               <div className="text-description-container">
                 <div className="text-description">

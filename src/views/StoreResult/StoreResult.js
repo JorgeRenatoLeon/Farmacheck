@@ -81,17 +81,19 @@ const StoreResult = () => {
       <div className="container">
         <p className="p-text">Resultados en <span>{district}</span></p>
       </div>
-      {listProductOptions.map((item)=>{
-        return(
-          <>          
-          <ItemLocal 
-            title={item.nombreComercial} 
-            subtitle={item.direccion} 
-            price={item.precio}                     
-          />
-          </>
-        )
-      })}
+      <div className="items-container">  
+        {listProductOptions.map((item)=>{
+          return(
+            <>          
+            <ItemLocal 
+              title={item.nombreComercial} 
+              subtitle={item.direccion} 
+              price={item.precio}                     
+            />
+            </>
+          )
+        })}
+      </div>
       <CommentsCard/>
     </div>
   );
