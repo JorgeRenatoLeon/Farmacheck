@@ -38,7 +38,10 @@ const SelectDropdown = (props) => {
                         const name = Object.keys(item)[0];
                         console.log("dropdown", name);
                         return (
-                            <li class="list-group-item" onClick={()=>handleClickList(item[name])} key={"concentracion-"+index}>
+                            <li class="list-group-item" onClick={()=>{
+                                    handleClickList(item[name]);
+                                    handleClick();
+                                }} key={"concentracion-"+index}>
                                 <strong>{item[name]}</strong>
                             </li>
                         );

@@ -1,5 +1,5 @@
 import React from "react";
-import TitleContainer from "../../components/TitleContainer/TitleContainer";
+import TitleContainer from "../../components/titleContainer/TitleContainer";
 import DropdownCard from "../../components/DropdownCard/DropdownCard";
 import CommentsCard from "../../components/CommentsCard/CommentsCard";
 import { useHistory, useLocation } from "react-router";

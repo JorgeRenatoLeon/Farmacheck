@@ -1,11 +1,13 @@
 import React from "react";
-import TitleContainer from "../../components/TitleContainer/TitleContainer";
+import TitleContainer from "../../components/titleContainer/TitleContainer";
 import SelectDropdown from "../../components/SelectDropdown/SelectDropdown";
 import CommentsCard from "../../components/CommentsCard/CommentsCard";
 import SeeMoreButton from "../../components/SeeMoreButton/SeeMoreButton";
 import { useHistory, useLocation } from "react-router";
 import * as ROUTES from "../../routes/routes";
 import services from "../../services/apiProduct";
+
+import './storePlaces.scss';
 
 const StorePlaces = () => {
   const history = useHistory();
@@ -70,7 +72,7 @@ const StorePlaces = () => {
     history.push(ROUTES.STORERESULT, routeState);
   }
   return (
-    <>
+    <div className="store-places-container">
       <TitleContainer product="Lugares de compra"/>
       <div className="container">
         <p className="p-text">Para mayor precisión sobre los lugares de compra, por favor completa la siguiente información </p>
@@ -99,7 +101,7 @@ const StorePlaces = () => {
         clickFunction={handleClick} 
         disabled={false}/>:null}
       <CommentsCard/>
-    </>
+    </div>
   );
 };
 

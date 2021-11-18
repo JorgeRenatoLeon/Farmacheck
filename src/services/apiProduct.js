@@ -1,30 +1,29 @@
 import axios from "axios";
 
 const API_URL = 
-"https://rest1.farmacheck.pe/";
-//"http://44.197.85.123:9080/buscador-precios/";
-
-const API_URL_LOCAL = 
-"http://44.197.85.123:9080/buscador-precios/";
+// "https://rest1.farmacheck.pe/";
+// "http://localhost:9080/buscador-precios/";
+// "http://44.197.85.123:9080/buscador-precios/";
+window.globalConfig || { url: process.env.REACT_APP_WEB_SERVICES_URL, keyCode: process.env.REACT_APP_KEYCODE} ;
 
 const searchProducts = (firstResult, maxResults, producto) => {
     const obj = {
-        keyCode: "aY0Jy2T6b6LLvMfBzI2pI5dPAfcqyvK",
+        keyCode: API_URL.keyCode,
         firstResult,
         maxResults,
         producto
     }
     return axios.post(
-      API_URL + "productos",
+      API_URL.url + "productos",
       obj,
     );
 };
 
 const searchProductDetails = (firstResult, maxResults, producto) => {
     return axios.post(
-        API_URL + "detalle",
+        API_URL.url + "detalle",
         {
-            keyCode: "aY0Jy2T6b6LLvMfBzI2pI5dPAfcqyvK",
+            keyCode: API_URL.keyCode,
             firstResult,
             maxResults,
             producto
@@ -34,9 +33,9 @@ const searchProductDetails = (firstResult, maxResults, producto) => {
 
 const searchProductPrices = (firstResult, maxResults, producto, presentacion, concentracion) => {
     return axios.post(
-        API_URL + "precios",
+        API_URL.url + "precios",
         {
-            keyCode: "aY0Jy2T6b6LLvMfBzI2pI5dPAfcqyvK",
+            keyCode: API_URL.keyCode,
             firstResult,
             maxResults,
             producto,
@@ -48,9 +47,9 @@ const searchProductPrices = (firstResult, maxResults, producto, presentacion, co
 
 const searchProductPricesByDistricts = (firstResult, maxResults, marca, laboratorio, presentacion, concentracion) => {
     return axios.post(
-        API_URL_LOCAL + "distritos",
+        API_URL.url + "distritos",
         {
-            keyCode: "aY0Jy2T6b6LLvMfBzI2pI5dPAfcqyvK",
+            keyCode: API_URL.keyCode,
             firstResult,
             maxResults,
             marca,
@@ -63,9 +62,9 @@ const searchProductPricesByDistricts = (firstResult, maxResults, marca, laborato
 
 const searchProductPricesByLocal = (firstResult, maxResults, marca, laboratorio, presentacion, concentracion, departamento, provincia, distrito) => {
     return axios.post(
-        API_URL_LOCAL + "locales",
+        API_URL.url + "locales",
         {
-            keyCode: "aY0Jy2T6b6LLvMfBzI2pI5dPAfcqyvK",
+            keyCode: API_URL.keyCode,
             firstResult,
             maxResults,
             marca,

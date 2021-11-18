@@ -1,6 +1,6 @@
 import React from "react";
 import Information from "../../components/Information/Information";
-import TitleContainer from "../../components/TitleContainer/TitleContainer";
+import TitleContainer from "../../components/titleContainer/TitleContainer";
 
 const TermsAndConditions = () => {
 

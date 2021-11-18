@@ -1,4 +1,14 @@
 @import '../../sassStyles/variables';
+
+.store-results-container{
+    background-color: #eef0ef;
+    min-height: 100vh;
+    max-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-content: center
+}
+
 .p-text{
     color: $gray-dark;
     margin-left: 20px;
