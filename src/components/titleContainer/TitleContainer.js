@@ -1,6 +1,7 @@
 import React from "react";
 import './titleContainer.scss';
 import { useHistory } from "react-router";
+import ArrowLeftSolid from "../../assets/svg/ArrowLeftSolid.svg";
 
 const TitleContainer = (props) => {
   const history = useHistory();
@@ -43,7 +44,7 @@ const TitleContainer = (props) => {
         <div className="row m-0">       
           <div className="col icon-container">
             <div className="icon-title">
-                <i className="bi bi-arrow-left" onClick={goBack}></i>
+                <img src={ArrowLeftSolid} alt="arrow" width="20px" height="20px" onClick={goBack} />
             </div>
           </div>
           <div className="col card-title">
