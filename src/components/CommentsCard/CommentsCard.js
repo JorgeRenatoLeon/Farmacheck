@@ -2,18 +2,25 @@ import React from "react";
 import './commentsCard.scss';
 import { Link } from "react-router-dom";
 import * as ROUTES from "../../routes/routes";
+import InformationIcon from "../../assets/svg/InformationIcon.svg";
 
 const CommentsCard = (props) => {
 
   return (      
     <div className="card-comments">         
-        <p className="first-text">
-          <Link to={ROUTES.TERMSANDCONDITIONS} >
-            <span className="icon-style"><i className="bi bi-exclamation-circle-fill"></i></span>
-          </Link>
-          Envíanos tus comentarios a
-        </p> 
-        <a className="second-text" href="mailto:info@farmacheck.pe">info@farmacheck.pe</a>       
+        <div class="row justify-content-md-center">
+          <div class="col-2">
+            <Link to={ROUTES.TERMSANDCONDITIONS} >
+              <img src={InformationIcon} alt="Information" width="40px" height="40px" />
+            </Link>
+          </div>
+          <div class="col-10">
+            <p className="first-text">
+              Envíanos tus comentarios a
+            </p> 
+            <a className="second-text" href="mailto:info@farmacheck.pe">info@farmacheck.pe</a>  
+          </div>     
+        </div>
     </div>  
   );
 };
