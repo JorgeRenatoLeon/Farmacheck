@@ -1,5 +1,5 @@
 import React from "react";
-import TitleContainer from "../../components/titleContainer/TitleContainer";
+import TitleContainer from "../../components/TitleContainer/TitleContainer";
 import ItemLocal from "../../components/ItemLocal/ItemLocal";
 import CommentsCard from "../../components/CommentsCard/CommentsCard";
 import './storeResult.scss';

@@ -1,5 +1,5 @@
 import React from "react";
-import TitleContainer from "../../components/titleContainer/TitleContainer";
+import TitleContainer from "../../components/TitleContainer/TitleContainer";
 import ItemProduct from "../../components/ItemProduct/ItemProduct";
 import CommentsCard from "../../components/CommentsCard/CommentsCard";
 import SeeMoreButton from "../../components/SeeMoreButton/SeeMoreButton";
