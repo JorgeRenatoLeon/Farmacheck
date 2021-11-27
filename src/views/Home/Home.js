@@ -42,7 +42,7 @@ const Home = () => {
           <>
             <div className="logo-container">
               <div className="logo">
-                <img src={Farma} alt="logo" width="250px" height="80px"/>
+                <img src={Farma} alt="logo" width="100%" height="100%"/>
               </div>
               <div className="text-description-container">
                 <div className="text-description">
@@ -52,12 +52,12 @@ const Home = () => {
             </div>
 
             <div className="bottom-logos row m-0">
-              <div className="bottom-logo-icon col">
+              <div className="bottom-logo-icon col p-0">
                 <img 
                   src={APEPS}
                   alt="apeps" width="120px" height="135px"/>
               </div>
-              <div className="bottom-logo-icon col">
+              <div className="bottom-logo-icon col p-0">
                 <img 
                   src={APESEG}
                   alt="apeseg" width="130px" height="130px"/>

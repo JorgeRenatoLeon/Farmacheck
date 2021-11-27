@@ -23,7 +23,7 @@ const ItemProduct = (props) => {
             </div>
             <div className="col-2 align-self-center click">  
                 <span onClick={clickFunction}>
-                    <i className="bi bi-chevron-compact-right icon-arrow-right"></i>
+                    <i className="bi bi-chevron-right icon-arrow-right"></i>
                 </span>          
             </div>
         </div> 

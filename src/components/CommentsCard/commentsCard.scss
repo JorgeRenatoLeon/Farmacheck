@@ -7,7 +7,7 @@
     padding-bottom: 15px;  
     padding-top: 15px;  
     width: 100%;
-    text-align: center;
+    text-align: left;
     margin-top: auto;
 }
 
@@ -23,7 +23,7 @@
 }
 
 .icon-style {
-    color: $primary;
+    color: $gray-dark;
     margin-top: -2px;
     margin-right: 5px;
 }
@@ -54,4 +54,14 @@
 }
 .second-text:hover {
     color: $primary;
+}
+
+@media screen and (max-width: 295px) {
+    .first-text {
+        font-size: 10px;
+    }
+
+    .second-text {
+        font-size: 10px;
+    }
 }

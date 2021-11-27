@@ -18,7 +18,7 @@ const CommentsCard = (props) => {
             <p className="first-text">
               Envíanos tus comentarios a
             </p> 
-            <a className="second-text" href="mailto:info@farmacheck.pe">info@farmacheck.pe</a>  
+            <a className="second-text" href="mailto:info@farmacheck.pe">info@FarmaCheck.pe</a>  
           </div>     
         </div>
     </div>  
