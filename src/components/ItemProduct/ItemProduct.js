@@ -21,7 +21,7 @@ const ItemProduct = (props) => {
                     <span className="p-price">{price.toFixed(2)}</span>
                 </div>
             </div>
-            <div className="col-2 align-self-center click">  
+            <div className="col-2 align-self-end click">  
                 <span onClick={clickFunction}>
                     <i className="bi bi-chevron-right icon-arrow-right"></i>
                 </span>          

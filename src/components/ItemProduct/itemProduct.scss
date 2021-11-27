@@ -13,13 +13,20 @@
 }
 
 .p-price-container{
-    text-align: end;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+
+    .p-title {
+        margin: 0;
+    }
 }
 
 .p-subtitle{
     color: $gray-dark;
     text-transform: lowercase;
     margin-bottom: 0;
+    line-height: 1;
 }
 
 .p-subtitle:first-letter {
@@ -32,12 +39,28 @@
     font-size: 23px;
     color: $primary;
     margin-bottom: 0;
+    margin-left: 3px;
+    line-height: 1;
 }
 .icon-arrow-right{
-    font-size: 30px;
+    font-size: 25px;
+    font-weight: bold;
     color:  $gray-dark;
+    -webkit-text-stroke: 1px $gray-dark;
 }
 
 .click {
     cursor: pointer;
+    display: flex;
+    align-items: center;
+
+    span {
+        display: flex;
+        align-items: flex-end;
+
+        i {
+            display: flex;
+            align-items: flex-end;
+        }
+    }
 }
