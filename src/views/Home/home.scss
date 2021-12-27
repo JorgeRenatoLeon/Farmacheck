@@ -30,6 +30,12 @@
             color: #4e4e4e;
             font-size: 14px;
         }
+
+        .text-description-after{
+            text-align: center;
+            color: #4e4e4e;
+            font-size: 14px;
+        }
     }
 
     .terms-and-conditions-container {
@@ -51,7 +57,13 @@
         margin-bottom: 8px;
         align-items: center;
     }
+
+    .link-tc {
+        color: $primary;
+    }
+    
 }
+
 
 // Animations
 

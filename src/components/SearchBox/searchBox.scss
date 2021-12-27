@@ -1,0 +1,30 @@
+@import '../../sassStyles/variables';
+
+.search-box {
+    background-color: white;
+    border-color:  $primary;
+    border-radius: 8px;
+    color: $secondary;
+}
+
+.input-search {
+    margin-top: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.input-icon {
+    font-size: 1rem;
+    color: $secondary;
+    display: flex;
+}
+
+.input-group-text {
+    background-color: white !important;
+    border-top:  $primary !important;
+    border-right:  $primary !important;
+    border-bottom:  $primary !important;
+    border-left: none !important;
+    border-radius: 8px;
+    margin-right: 0px;
+}
