@@ -3,6 +3,7 @@
 .search-box {
     background-color: white;
     border-color:  $primary;
+    border-right-width: 0;
     border-radius: 8px;
     color: $secondary;
 }
@@ -15,16 +16,14 @@
 
 .input-icon {
     font-size: 1rem;
-    color: $secondary;
+    color: $gray-lighter;
     display: flex;
 }
 
 .input-group-text {
+    border: 1px solid #37C2D1;
+    border-left-width: 0;
     background-color: white !important;
-    border-top:  $primary !important;
-    border-right:  $primary !important;
-    border-bottom:  $primary !important;
-    border-left: none !important;
     border-radius: 8px;
     margin-right: 0px;
 }
