@@ -2,7 +2,7 @@ import React from "react";
 import './searchBox.scss';
 
 const SearchBox = (props) => {
-  const {searchValue} = props;
+  const {searchValue, searchMed} = props;
   return (      
     <div class="row input-search">
       <div className="input-group">
@@ -11,7 +11,7 @@ const SearchBox = (props) => {
           class="form-control search-box" 
           placeholder="Busca por nombre comercial o genérico" 
           value={searchValue}/>
-        <span className="input-group-text">
+        <span className="input-group-text" onClick={searchMed}>
           <i className="bi-search input-icon"></i>
         </span>
       </div>

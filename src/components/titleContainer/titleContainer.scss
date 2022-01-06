@@ -10,6 +10,16 @@
     margin-bottom: 20px;
 }
 
+.card-titleContainer-tabs{
+    background-color: $primary;
+    padding-top: 30px;
+    flex-direction: row;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 0px;
+}
+
 .card-title {
     width: calc(100vw - 78px);
     display: flex;

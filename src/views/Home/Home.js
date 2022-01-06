@@ -38,6 +38,11 @@ const Home = () => {
   
   const [showInfo, setShowInfo] = React.useState(false);
 
+  const handleSearch = () =>{
+    history.push(ROUTES.STOREPLACES);
+  }
+
+
   return (
     <div name="Home" className="home-container">
       {!showInfo ? 
@@ -53,7 +58,7 @@ const Home = () => {
                 </div>
               </div>
             </div>
-            <SearchBox searchValue={searchValue} />
+            <SearchBox searchValue={searchValue} searchMed={handleSearch}/>
             <div className="text-description-container">
                 <div className="text-description-after">
                   Al usar el buscador estas sujeto a nuestros<br/>

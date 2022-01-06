@@ -1,5 +1,6 @@
 import React from "react";
 import TitleContainer from "../../components/TitleContainer/TitleContainer";
+import LocationTabs from "../../components/LocationTabs/LocationTabs";
 import SelectDropdown from "../../components/SelectDropdown/SelectDropdown";
 import CommentsCard from "../../components/CommentsCard/CommentsCard";
 import SeeMoreButton from "../../components/SeeMoreButton/SeeMoreButton";
@@ -18,17 +19,18 @@ const StorePlaces = () => {
   const [selectedDistrict, setSelectedDistrict]  = React.useState("");  
   const [listDistrictsSelected, setListDistrictsSelected] = React.useState([]);
   const [listDepartments, setListDepartments] = React.useState([]);
+  const [tabOption, setTabOption] = React.useState("firstOp");
 
   React.useEffect(() => {
-    if(location.state === undefined || location.state.productOption === undefined || location.state.productVersion === undefined) 
+    /*if(location.state === undefined || location.state.productOption === undefined || location.state.productVersion === undefined) 
       history.push(ROUTES.SEARCH);
-    else
+    else*/
       iniSearch();
   }, [location, history]);
 
   async function iniSearch(){
-    var results = await search( location.state.productOption, location.state.productVersion, 1, location.state.productBrand, location.state.productLab);    
-    setListDepartments(results);
+    //var results = await search( location.state.productOption, location.state.productVersion, 1, location.state.productBrand, location.state.productLab);    
+    //setListDepartments(results);
   }
 
   async function search( productOption, productVersion, pageNumber, brand, lab) {
@@ -71,35 +73,49 @@ const StorePlaces = () => {
     }
     history.push(ROUTES.STORERESULT, routeState);
   }
+
+  const handleTabs = (option) =>{
+    setTabOption(option);
+    console.log(option);
+
+  }
   return (
     <div className="store-places-container">
-      <TitleContainer product="Lugares de compra"/>
-      <div className="container">
-        <p className="p-text">Para mayor precisión sobre los lugares de compra, por favor completa la siguiente información </p>
-      </div>
-      {listDepartments.length>0?
-      <SelectDropdown 
-        selectName="Departamento"
-        nameSelected={selectedDepartment} 
-        listItems={listDepartments}
-        handleClickList={changeListProvinces}/>:null}      
-      {listProvincesSelected.length>0?
-      <SelectDropdown 
-        selectName="Provincia"
-        nameSelected={selectedProvince} 
-        listItems={listProvincesSelected}
-        handleClickList={changeListDistricts}/>:null}
-      {listDistrictsSelected.length>0?
-      <SelectDropdown 
-        selectName="Distrito"
-        nameSelected={selectedDistrict} 
-        listItems={listDistrictsSelected}
-        handleClickList={setSelectedDistrict}/>:null}
-      {selectedDistrict.length>0?
-      <SeeMoreButton 
-        title="Aceptar" 
-        clickFunction={handleClick} 
-        disabled={false}/>:null}
+      <TitleContainer product="Lugares de compra" tabs/>
+      <LocationTabs changeTab={(option)=>handleTabs(option)}/>
+      {tabOption==="firstOp"?
+      <>
+        <p>Holi tab mi ubicación</p>
+      </>
+      :
+      <>
+        <div className="container">
+          <p className="p-text">Para mayor precisión sobre los lugares de compra, por favor completa la siguiente información </p>
+        </div>
+        {listDepartments.length>0?
+        <SelectDropdown 
+          selectName="Departamento"
+          nameSelected={selectedDepartment} 
+          listItems={listDepartments}
+          handleClickList={changeListProvinces}/>:null}      
+        {listProvincesSelected.length>0?
+        <SelectDropdown 
+          selectName="Provincia"
+          nameSelected={selectedProvince} 
+          listItems={listProvincesSelected}
+          handleClickList={changeListDistricts}/>:null}
+        {listDistrictsSelected.length>0?
+        <SelectDropdown 
+          selectName="Distrito"
+          nameSelected={selectedDistrict} 
+          listItems={listDistrictsSelected}
+          handleClickList={setSelectedDistrict}/>:null}
+        {selectedDistrict.length>0?
+        <SeeMoreButton 
+          title="Aceptar" 
+          clickFunction={handleClick} 
+          disabled={false}/>:null}
+      </>}
       <CommentsCard/>
     </div>
   );

@@ -6,7 +6,7 @@ import ArrowLeftSolid from "../../assets/svg/ArrowLeftSolid.svg";
 const TitleContainer = (props) => {
   const history = useHistory();
 
-  const {product, quantity, concentration} = props;
+  const {product, quantity, concentration, tabs} = props;
 
   const goBack = () => {
     history.goBack();
@@ -40,7 +40,7 @@ const TitleContainer = (props) => {
   }
 
   return (           
-      <div className="card-titleContainer">   
+      <div className={tabs?"card-titleContainer-tabs":"card-titleContainer"}>   
         <div className="row m-0">       
           <div className="col icon-container">
             <div className="icon-title">

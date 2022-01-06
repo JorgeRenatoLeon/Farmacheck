@@ -1,0 +1,21 @@
+@import '../../sassStyles/variables';
+
+.nav{
+    justify-content: space-around;
+}
+.nav-tabs{
+    background-color: $primary;
+    margin-bottom: 10px;
+    
+
+}
+
+.nav-link{
+    border: none!important;
+    color: white!important;
+}
+
+.nav-link.active {
+    background-color: $primary!important;
+    color: white!important;
+}
