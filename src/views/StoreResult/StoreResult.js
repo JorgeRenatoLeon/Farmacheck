@@ -26,10 +26,10 @@ const StoreResult = () => {
     //   precio: 8.00,
     // }
   ]);
-  const [district, setDistrict] = React.useState(location.state.productDistrict);
+  const [district, setDistrict] = React.useState(/*location.state.productDistrict*/"Distrito");
 
   React.useEffect(() => {
-    if(location.state === undefined ||
+    /*if(location.state === undefined ||
       location.state.productOption === undefined ||
       location.state.productVersion === undefined ||
       location.state.productBrand === undefined ||
@@ -38,16 +38,16 @@ const StoreResult = () => {
       location.state.productProvince === undefined ||
       location.state.productDistrict === undefined) 
       history.push(ROUTES.SEARCH);
-    else
+    else*/
       iniSearch();
   }, [location, history]);
 
   async function iniSearch(){
-    var results = await search( 1, 
+    /*var results = await search( 1, 
       location.state.productBrand, location.state.productLab,
       location.state.productOption, location.state.productVersion,
       location.state.productDepartment, location.state.productProvince, location.state.productDistrict);    
-    setListProductOptions(results);
+    setListProductOptions(results);*/
   }
 
   async function search( pageNumber, 
@@ -77,7 +77,7 @@ const StoreResult = () => {
 
   return (
     <div className="store-results-container">
-      <TitleContainer product="Arcoxia"  quantity="90mg"  concentration="Tableta"/>
+      {/*<TitleContainer product="Arcoxia"  quantity="90mg"  concentration="Tableta"/>*/}
       <div className="container">
         <p className="p-text">Resultados en <span>{district}</span></p>
       </div>
@@ -94,7 +94,7 @@ const StoreResult = () => {
           )
         })}
       </div>
-      <CommentsCard/>
+      {/*<CommentsCard/>*/}
     </div>
   );
 };

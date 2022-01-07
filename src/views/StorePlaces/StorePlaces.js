@@ -7,7 +7,7 @@ import SeeMoreButton from "../../components/SeeMoreButton/SeeMoreButton";
 import { useHistory, useLocation } from "react-router";
 import * as ROUTES from "../../routes/routes";
 import services from "../../services/apiProduct";
-
+import StoreResult from "../../views/StoreResult/StoreResult";
 import './storePlaces.scss';
 
 const StorePlaces = () => {
@@ -82,10 +82,10 @@ const StorePlaces = () => {
   return (
     <div className="store-places-container">
       <TitleContainer product="Lugares de compra" tabs/>
-      <LocationTabs changeTab={(option)=>handleTabs(option)}/>
+      <LocationTabs tabOption={tabOption} changeTab={(option)=>handleTabs(option)}/>
       {tabOption==="firstOp"?
       <>
-        <p>Holi tab mi ubicación</p>
+        <StoreResult/>
       </>
       :
       <>

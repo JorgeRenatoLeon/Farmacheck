@@ -3,7 +3,7 @@ import { useHistory, useLocation } from "react-router";
 import * as ROUTES from "../../routes/routes";
 import APEPS from "../../assets/svg/APEPS.svg";
 import APESEG from "../../assets/img/APESEGCURVA.png";
-import Farma from "../../assets/img/farmacheck.png";
+import Farma from "../../assets/svg/Farma.svg";
 import Information from "../../components/Information/Information";
 import SearchBox from "../../components/SearchBox/SearchBox";
 
@@ -50,11 +50,11 @@ const Home = () => {
           <>
             <div className="logo-container">
               <div className="logo">
-                <img src={Farma} alt="logo" width="100%" height="100%"/>
+                <img src={Farma} alt="logo" width="50%" height="80%"/>
               </div>
               <div className="text-description-container">
                 <div className="text-description-after">
-                  Tú decides dónde comprar<br/>tus medicinas al mejor precio
+                  Tú decides dónde comprar tus<br/> medicinas al mejor precio
                 </div>
               </div>
             </div>

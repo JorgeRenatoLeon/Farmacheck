@@ -2,17 +2,17 @@ import React from "react";
 import './locationsTabs.scss';
 
 const LocationTabs = (props) => {
-    const {changeTab} = props;
+    const {tabOption, changeTab} = props;
     return (
         <>
         <ul class="nav nav-tabs">
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" onClick={()=>changeTab("firstOp")} href="#firstOp">
+                <a class={tabOption==="firstOp"?"nav-link active":"nav-link"} aria-current="page" onClick={()=>changeTab("firstOp")}>
                     Mi Ubicación
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" onClick={()=>changeTab("secondOp")} href="#secondOp">
+                <a class={tabOption==="secondOp"?"nav-link active":"nav-link"} onClick={()=>changeTab("secondOp")}>
                     Otra Ubicación
                 </a>
             </li>
