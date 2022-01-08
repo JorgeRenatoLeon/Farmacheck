@@ -15,7 +15,6 @@ const Home = () => {
   const location = useLocation();
   
   const session = JSON.parse(localStorage.getItem("session"));
-  const [searchValue, setSearchValue] = useState(null);
   
   setTimeout(() => {
     if(session!==null){
@@ -58,7 +57,7 @@ const Home = () => {
                 </div>
               </div>
             </div>
-            <SearchBox searchValue={searchValue} searchMed={handleSearch}/>
+            <SearchBox searchMed={handleSearch}/>
             <div className="text-description-container">
                 <div className="text-description-after">
                   Al usar el buscador estas sujeto a nuestros<br/>

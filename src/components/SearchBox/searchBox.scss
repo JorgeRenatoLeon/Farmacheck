@@ -18,6 +18,7 @@
     font-size: 1rem;
     color: $gray-lighter;
     display: flex;
+    transform: rotate(90deg);
 }
 
 .input-group-text {
@@ -27,3 +28,9 @@
     border-radius: 8px;
     margin-right: 0px;
 }
+
+.dropdown-menu {
+    display: initial !important;
+    border-color:  $primary;
+    width: 92%;
+} 
