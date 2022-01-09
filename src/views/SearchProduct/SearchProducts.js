@@ -18,15 +18,16 @@ const SearchProduct = () => {
   const [total, setTotal] = React.useState(0);
 
   React.useEffect(() => {
-    if(location.state === undefined || location.state.product === undefined) history.push(ROUTES.SEARCH);
+    
+    async function iniSearch(){
+      var results = await search(location.state.product, 1);
+      setListProductOptions(results);
+    }
+    if(location.state === undefined || location.state.product === undefined)
+      history.push(ROUTES.HOME);
     else iniSearch();
+    
   }, [location, history]);
-
-  async function iniSearch(){
-    var results = await search(location.state.product, 1);
-    console.log(results)
-    setListProductOptions(results);
-  }
   
   async function search(word, pageNumber) {
     var results = []

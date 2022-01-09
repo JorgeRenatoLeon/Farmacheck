@@ -17,17 +17,17 @@ const ProductResult = () => {
   const [page, setPage] = React.useState(1);
 
   React.useEffect(() => {
+
+    async function iniSearch(){
+      var results = await search(location.state.product, location.state.productOption, location.state.productVersion, 1);
+      setListProductOptions(results);
+    }
+    
     if(location.state === undefined || location.state.product === undefined || location.state.productOption === undefined || location.state.productVersion === undefined) 
       history.push(ROUTES.SEARCH);
     else
       iniSearch();
   }, [location, history]);
-
-  async function iniSearch(){
-    var results = await search(location.state.product, location.state.productOption, location.state.productVersion, 1);
-    console.log(results)
-    setListProductOptions(results);
-  }
   
   async function search(product, productOption, productVersion, pageNumber) {
     var results = []
@@ -55,6 +55,7 @@ const ProductResult = () => {
       productVersion: location.state.productVersion,
       productBrand:productItem.marca,
       productLab: productItem.laboratorio,
+      geolocation: true,
     }
     history.push(ROUTES.STOREPLACES, routeState);
   }

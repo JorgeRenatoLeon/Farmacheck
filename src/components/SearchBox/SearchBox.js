@@ -1,31 +1,61 @@
 import React, {useState} from "react";
 import './searchBox.scss';
+import { useHistory } from "react-router";
+import * as ROUTES from "../../routes/routes";
+import services from "../../services/apiProduct";
 
 const SearchBox = (props) => {
   const {searchMed} = props;
   
   const [searchValue, setSearchValue] = useState("");
   const [openList, setOpenList] = useState(false);
-  const [resultsList, setResultsList] = useState(["Result 1", "Result 2", "Result 3"]);
+  const [resultsList, setResultsList] = useState([]);
+  const history = useHistory();
+  
+  async function search(word, pageNumber) {
+      var results = []
+      await services
+        .searchProducts(pageNumber, 5, word)
+        .then((response) => {
+            results = response.data.productos ? response.data.productos : [];
+        })
+        .catch((e) => {
+            console.log(e);
+        });
+      return results;
+  }
+
+  async function  handleSearch(word){
+      if(word.length >= 3){
+          var results = await search(word, 1);
+          setResultsList(results.slice(0,3));
+          setOpenList(true);
+      }
+  }
+
+  function goToDetails(product){
+      history.push(ROUTES.SEARCHPRODUCTS, {product: product});
+  }
 
   const searchMedicine = (e) => {
     const searchResult = e.target.value;
     //call service to search
     setSearchValue(e.target.value);
     //set results list
-    if (searchResult.length > 0)
-      setOpenList(true);
+    if (searchResult.length >= 3) {
+      handleSearch(searchResult)
+    }
     else
       setOpenList(false);
 
   }
 
   return (      
-    <div class="input-search">
+    <div className="input-search">
       <div className="input-group">
         <input 
           type="search"
-          class="form-control search-box" 
+          className="form-control search-box" 
           placeholder="Busca por nombre comercial o genérico" 
           value={searchValue}
           onChange={(e)=>searchMedicine(e)}
@@ -36,10 +66,10 @@ const SearchBox = (props) => {
         </span>
       </div>
       {openList && 
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-        {resultsList.map((result)=>{
+      <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        {resultsList.map((result, index)=>{
           return(
-            <li class="dropdown-item" onClick={searchMed}>{result}</li>
+            <li key={index} className="dropdown-item" onClick={() => { goToDetails(result.producto) } }>{result.producto}</li>
           )
         })}        
       </ul>}

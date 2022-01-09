@@ -36,7 +36,6 @@ const SelectDropdown = (props) => {
                     {
                     listItems.map((item, index)=>{
                         const name = Object.keys(item)[0];
-                        console.log("dropdown", name);
                         return (
                             <li class="list-group-item" onClick={()=>{
                                     handleClickList(item[name]);

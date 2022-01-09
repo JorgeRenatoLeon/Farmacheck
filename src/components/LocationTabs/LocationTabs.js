@@ -5,16 +5,16 @@ const LocationTabs = (props) => {
     const {tabOption, changeTab} = props;
     return (
         <>
-        <ul class="nav nav-tabs">
-            <li class="nav-item">
-                <a class={tabOption==="firstOp"?"nav-link active":"nav-link"} aria-current="page" onClick={()=>changeTab("firstOp")}>
+        <ul className="nav nav-tabs">
+            <li className="nav-item">
+                <div className={tabOption==="firstOp"?"nav-link active":"nav-link"} aria-current="page" onClick={()=>changeTab("firstOp")}>
                     Mi Ubicación
-                </a>
+                </div>
             </li>
-            <li class="nav-item">
-                <a class={tabOption==="secondOp"?"nav-link active":"nav-link"} onClick={()=>changeTab("secondOp")}>
+            <li className="nav-item">
+                <div className={tabOption==="secondOp"?"nav-link active":"nav-link"} onClick={()=>changeTab("secondOp")}>
                     Otra Ubicación
-                </a>
+                </div>
             </li>
         </ul>
         </>

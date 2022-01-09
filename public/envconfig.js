@@ -1,5 +1,6 @@
 window.globalConfig = {
-    url: "http://44.197.85.123:9080/buscador-precios/",
+    url: "http://54.159.130.39:8080/buscador-precios/",
     keyCode: "aY0Jy2T6b6LLvMfBzI2pI5dPAfcqyvK",
-    redirectUrl: "https://farmacheck.pe"
+    redirectUrl: "https://farmacheck.pe",
+    apiGoogleKey: "&key=AIzaSyBq6WUFN2t5cnB_ewYLyJJSMJeSRBtw620"
 }

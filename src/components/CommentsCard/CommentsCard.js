@@ -8,13 +8,13 @@ const CommentsCard = (props) => {
 
   return (      
     <div className="card-comments">         
-        <div class="row card-comments-content">
-          <div class="col icon-content">
+        <div className="row card-comments-content">
+          <div className="col icon-content">
             <Link to={ROUTES.TERMSANDCONDITIONS} className="icon-link">
               <img src={InformationIcon} alt="Information" width="40px" height="40px" />
             </Link>
           </div>
-          <div class="col text-content">
+          <div className="col text-content">
             <p className="first-text">
               Envíanos tus comentarios a
             </p> 

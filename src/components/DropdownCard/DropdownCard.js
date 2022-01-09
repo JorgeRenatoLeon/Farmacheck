@@ -11,11 +11,11 @@ const DropdownCard = (props) => {
   }
 
   return (                  
-    <div class="accordion dropdown-product" id={"accordion-"+title}>
-        <div class="accordion-item ">
-            <h2 class="accordion-header" id={"headingOne"+title}>
+    <div className="accordion dropdown-product" id={"accordion-"+title}>
+        <div className="accordion-item ">
+            <h2 className="accordion-header" id={"headingOne"+title}>
                 <button 
-                    class={show?"accordion-button dropdown-container":"accordion-button collapsed dropdown-container"} 
+                    className={show?"accordion-button dropdown-container":"accordion-button collapsed dropdown-container"} 
                     onClick={handleClick} 
                     type="button" 
                     data-bs-toggle="collapse" 
@@ -27,15 +27,15 @@ const DropdownCard = (props) => {
                 </button>
             </h2>
             <div id={"collapseOne-"+title}  
-                class={show?"accordion-collapse collapse show":"accordion-collapse collapse" }
+                className={show?"accordion-collapse collapse show":"accordion-collapse collapse" }
                 aria-labelledby={"headingOne"+title} 
                 data-bs-parent={"#accordion-"+title}>
                 <div className="accordion-body">
-                    <ul class="list-group">
+                    <ul className="list-group">
                     {
                     listProductVersions.map((productVersion, index)=>{
                         return (
-                            <li class="list-group-item" key={"concentracion-"+index} onClick={() => { handleClickItem(title, productVersion.concentracion)}}>
+                            <li className="list-group-item" key={"concentracion-"+index} onClick={() => { handleClickItem(title, productVersion.concentracion)}}>
                                 <strong>{productVersion.concentracion}</strong>
                             </li>
                         );

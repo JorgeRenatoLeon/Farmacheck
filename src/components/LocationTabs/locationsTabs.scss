@@ -14,12 +14,14 @@
     background-color: $primary;
 }
 
-.nav-link.active{
-    background-color: white;
-    color: $primary!important;
-}
-
 .nav-item{
     width: 50%;
     text-align: center;
+    cursor: pointer;
+}
+
+.nav-link.active{
+    background-color: white;
+    color: $primary!important;
+    cursor: auto;
 }

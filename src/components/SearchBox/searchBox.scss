@@ -34,3 +34,9 @@
     border-color:  $primary;
     width: 92%;
 } 
+
+.dropdown-item {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

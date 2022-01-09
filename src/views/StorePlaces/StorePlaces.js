@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useRef} from "react";
 import TitleContainer from "../../components/TitleContainer/TitleContainer";
 import LocationTabs from "../../components/LocationTabs/LocationTabs";
 import SelectDropdown from "../../components/SelectDropdown/SelectDropdown";
@@ -10,7 +10,9 @@ import services from "../../services/apiProduct";
 import StoreResult from "../../views/StoreResult/StoreResult";
 import './storePlaces.scss';
 
-const StorePlaces = () => {
+const StorePlaces = (props) => {
+  const innerRef = useRef();
+
   const history = useHistory();
   const location = useLocation();
   const [selectedDepartment, setSelectedDepartment]  = React.useState("");
@@ -22,16 +24,17 @@ const StorePlaces = () => {
   const [tabOption, setTabOption] = React.useState("firstOp");
 
   React.useEffect(() => {
-    /*if(location.state === undefined || location.state.productOption === undefined || location.state.productVersion === undefined) 
-      history.push(ROUTES.SEARCH);
-    else*/
+    async function iniSearch(){
+      var results = await search( location.state.productOption, location.state.productVersion, 1, location.state.productBrand, location.state.productLab);    
+      setListDepartments(results);
+    }
+
+    if(location.state === undefined || location.state.productOption === undefined || location.state.productVersion === undefined) {
+      history.push(ROUTES.HOME);
+    }
+    else
       iniSearch();
   }, [location, history]);
-
-  async function iniSearch(){
-    //var results = await search( location.state.productOption, location.state.productVersion, 1, location.state.productBrand, location.state.productLab);    
-    //setListDepartments(results);
-  }
 
   async function search( productOption, productVersion, pageNumber, brand, lab) {
     var results = [];
@@ -60,7 +63,7 @@ const StorePlaces = () => {
     setListDistrictsSelected(listDistricts);
   }
 
-  const handleClick = () => {
+  const handleClick = (geolocation) => {
     var routeState = {
       productOption: location.state.productOption,
       productVersion: location.state.productVersion,
@@ -69,15 +72,13 @@ const StorePlaces = () => {
       productDepartment: selectedDepartment,
       productDistrict : selectedDistrict,
       productProvince: selectedProvince,
-
+      geolocation: geolocation,
     }
     history.push(ROUTES.STORERESULT, routeState);
   }
 
   const handleTabs = (option) =>{
     setTabOption(option);
-    console.log(option);
-
   }
   return (
     <div className="store-places-container">
@@ -85,7 +86,7 @@ const StorePlaces = () => {
       <LocationTabs tabOption={tabOption} changeTab={(option)=>handleTabs(option)}/>
       {tabOption==="firstOp"?
       <>
-        <StoreResult/>
+        <StoreResult onError={(error) => console.log(error)} ref={innerRef} listDepartments={listDepartments}/>
       </>
       :
       <>
@@ -113,7 +114,7 @@ const StorePlaces = () => {
         {selectedDistrict.length>0?
         <SeeMoreButton 
           title="Aceptar" 
-          clickFunction={handleClick} 
+          clickFunction={() => { handleClick(false) }} 
           disabled={false}/>:null}
       </>}
       <CommentsCard/>

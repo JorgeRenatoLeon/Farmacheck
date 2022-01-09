@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useHistory, useLocation } from "react-router";
+import React from "react";
+import { useHistory } from "react-router";
 import * as ROUTES from "../../routes/routes";
 import APEPS from "../../assets/svg/APEPS.svg";
 import APESEG from "../../assets/img/APESEGCURVA.png";
@@ -12,13 +12,11 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   const history = useHistory();
-  const location = useLocation();
   
   const session = JSON.parse(localStorage.getItem("session"));
   
   setTimeout(() => {
     if(session!==null){
-      console.log(location.pathname)
       /*if(location.pathname === "/inicio"){
         history.push(ROUTES.SEARCH);
       }*/
