@@ -71,44 +71,47 @@ const StoreResult = (props) => {
 
     async function searchFunction(productDepartment, productProvince, productDistrict){
 
-      var provinceSelected;
-      var disctrictSelected;
+      if (props.listDepartments.length>0){
+        var provinceSelected;
+        var disctrictSelected;
+        var departmentSelected = props.listDepartments.filter((departamento => productDepartment.toUpperCase().includes(departamento.departamento)))[0];
 
-      var departmentSelected = props.listDepartments.filter((departamento => productDepartment.toUpperCase().includes(departamento.departamento)))[0];
-
-      if (departmentSelected === undefined) {
-        departmentSelected = props.listDepartments[0]
-        provinceSelected = departmentSelected.provincias[0]
-        disctrictSelected = provinceSelected.distritos[0]
-      }
-
-      else {
-      
-        provinceSelected = departmentSelected.provincias.filter((provincia => productProvince.toUpperCase().includes(provincia.provincia)))[0];
-  
-        if (provinceSelected === undefined) {
+        if (departmentSelected === undefined) {
+          departmentSelected = props.listDepartments[0];
           provinceSelected = departmentSelected.provincias[0]
           disctrictSelected = provinceSelected.distritos[0]
         }
 
         else {
         
-          disctrictSelected = provinceSelected.distritos.filter((district => productDistrict.toUpperCase().includes(district.distrito)))[0];
+          provinceSelected = departmentSelected.provincias.filter((provincia => productProvince.toUpperCase().includes(provincia.provincia)))[0];
     
-          if (disctrictSelected === undefined) {
+          if (provinceSelected === undefined) {
+            provinceSelected = departmentSelected.provincias[0]
             disctrictSelected = provinceSelected.distritos[0]
           }
 
+          else {
+          
+            disctrictSelected = provinceSelected.distritos.filter((district => productDistrict.toUpperCase().includes(district.distrito)))[0];
+      
+            if (disctrictSelected === undefined) {
+              disctrictSelected = provinceSelected.distritos[0]
+            }
+
+          }
         }
+
+        setDistritoBuscado(disctrictSelected.distrito)
+
+        var results = await search( 1, 
+          location.state.productBrand, location.state.productLab,
+          location.state.productOption, location.state.productVersion,
+          departmentSelected.departamento, provinceSelected.provincia, disctrictSelected.distrito);    
+        setListProductOptions(results);
+
       }
-
-      setDistritoBuscado(disctrictSelected.distrito)
-
-      var results = await search( 1, 
-        location.state.productBrand, location.state.productLab,
-        location.state.productOption, location.state.productVersion,
-        departmentSelected.departamento, provinceSelected.provincia, disctrictSelected.distrito);    
-      setListProductOptions(results);
+      
     }
   
       if(location.state.geolocation && props.isGeolocationAvailable && props.isGeolocationEnabled && props.coords){
@@ -198,7 +201,7 @@ const StoreResult = (props) => {
       ) : props.coords ? (
         <div>
           <div className="container">
-            {distrito.long_name !== distritoBuscado && distritoBuscado !== "No Encontrado" ? (
+            {distrito.long_name && distritoBuscado && distrito.long_name.toUpperCase() !== distritoBuscado.toUpperCase() && distritoBuscado !== "No Encontrado" ? (
               <>
                 <p className="p-text">No se encontraron resultados en <span>{distrito.long_name}</span></p>
                 <p className="p-text">Se muestran los resultados en <span>{distritoBuscado}</span></p>
