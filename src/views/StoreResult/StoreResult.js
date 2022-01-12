@@ -7,6 +7,7 @@ import { useHistory, useLocation } from "react-router";
 import axios from "axios";
 import * as ROUTES from "../../routes/routes";
 import services from "../../services/apiProduct";
+import CommentsCard from "../../components/CommentsCard/CommentsCard";
 
 const API_GOOGLE = 
 // "https://rest1.farmacheck.pe/";
@@ -178,7 +179,7 @@ const StoreResult = (props) => {
   }
 
   return (
-    <div className="store-results-container">
+    <div className={!location.state.geolocation ?"store-results-container-defined":"store-results-container"}>
       {!location.state.geolocation ? (
         <div>
           <TitleContainer product={location.state.productBrand}  quantity={location.state.productOption}  concentration={location.state.productVersion}/>
@@ -221,6 +222,7 @@ const StoreResult = (props) => {
           <p className="p-text">Obteniendo datos de su ubicación&hellip;</p>
         </div>
       )}
+      {!location.state.geolocation && <CommentsCard/>}
     </div>
   );
 };

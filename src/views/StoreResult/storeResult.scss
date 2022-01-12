@@ -9,8 +9,23 @@
     .items-container .container:last-of-type{
         padding-bottom: 30px;
     }
+    
+}
+.store-results-container-defined{
+    background-color: #eef0ef;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    min-height: 100vh;
+    .items-container .container:last-of-type{
+        padding-bottom: 30px;
+    }
+
 }
 
+.container-district-results{
+    min-height: 100vh;
+}
 .p-text{
     color: $gray-dark;
     margin-left: 20px;
