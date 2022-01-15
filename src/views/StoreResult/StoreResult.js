@@ -105,11 +105,13 @@ const StoreResult = (props) => {
 
         setDistritoBuscado(disctrictSelected.distrito)
 
-        var results = await search( 1, 
-          location.state.productBrand, location.state.productLab,
-          location.state.productOption, location.state.productVersion,
-          departmentSelected.departamento, provinceSelected.provincia, disctrictSelected.distrito);    
-        setListProductOptions(results);
+        if(disctrictSelected.distrito.toUpperCase() === distrito.toUpperCase()){
+          var results = await search( 1, 
+            location.state.productBrand, location.state.productLab,
+            location.state.productOption, location.state.productVersion,
+            departmentSelected.departamento, provinceSelected.provincia, disctrictSelected.distrito);    
+          setListProductOptions(results);
+        }
 
       }
       
@@ -142,7 +144,7 @@ const StoreResult = (props) => {
         })
       }
 
-  }, [props, location])
+  }, [props, location, distrito])
 
   async function search( pageNumber, 
     productBrand, productLab,
@@ -204,8 +206,7 @@ const StoreResult = (props) => {
           <div className="container">
             {distrito && distritoBuscado && distrito.toUpperCase() !== distritoBuscado.toUpperCase() && distritoBuscado !== "No Encontrado" ? (
               <>
-                <p className="p-text">No se encontraron resultados en <span>{distrito}</span></p>
-                <p className="p-text">Se muestran los resultados en <span>{distritoBuscado}</span></p>
+                <p className="p-text">No se encontraron resultados en <span>{distrito}</span> utilize la búsqueda manual en <span>"OTRA UBICACIÓN"</span> para especificar otro distrito.</p>
               </>
             )
             :
