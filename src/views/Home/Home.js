@@ -22,7 +22,7 @@ const Home = () => {
       }*/
     }
     else{
-      setShowInfo(true);
+      setShowInfo(false);
       /*setTimeout(() => {
         console.log(location.pathname)
         if(location.pathname === "/inicio"){

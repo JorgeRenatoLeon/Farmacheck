@@ -131,9 +131,9 @@ const StoreResult = (props) => {
 
             let distritos = components.filter((component => component.types.includes("locality")))
 
+            const productDistrict = distritos.length > 0 ? distritos[0] : components.filter((component => component.types.includes("sublocality"))).length>0 ? components.filter((component => component.types.includes("sublocality")))[0] : components[0]
             
-            const productDistrict = distritos.length > 0 ? distritos[0] : components.filter((component => component.types.includes("sublocality"))).length>0 ? components.filter((component => component.types.includes("sublocality")))[0] : {}
-            setDistrito(productDistrict)
+            setDistrito(productDistrict.long_name)
 
             searchFunction(productDepartment.long_name, productProvince.long_name, productDistrict.long_name);
         })
@@ -202,15 +202,15 @@ const StoreResult = (props) => {
       ) : props.coords ? (
         <div>
           <div className="container">
-            {distrito.long_name && distritoBuscado && distrito.long_name.toUpperCase() !== distritoBuscado.toUpperCase() && distritoBuscado !== "No Encontrado" ? (
+            {distrito && distritoBuscado && distrito.toUpperCase() !== distritoBuscado.toUpperCase() && distritoBuscado !== "No Encontrado" ? (
               <>
-                <p className="p-text">No se encontraron resultados en <span>{distrito.long_name}</span></p>
+                <p className="p-text">No se encontraron resultados en <span>{distrito}</span></p>
                 <p className="p-text">Se muestran los resultados en <span>{distritoBuscado}</span></p>
               </>
             )
             :
             (
-              <p className="p-text">Resultados en <span>{distrito.long_name}</span></p>
+              <p className="p-text">Resultados en <span>{distrito}</span></p>
             )}
           </div>
           <div className="items-container">  
