@@ -6,10 +6,13 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-content: center;
     animation: home-fade 1.5s;
     color: black;
+
+    .logo-container{
+        margin-top: 20px;
+    }
 
     .logo{
         text-align: center;
@@ -33,9 +36,10 @@
 
         .text-description-after{
             text-align: center;
-            color: #4e4e4e;
+            color: #585757;
             font-size: 14px;
             font-style: italic;
+            font-weight: 400;
         }
     }
 
@@ -62,8 +66,15 @@
     .link-tc {
         color: $primary;
     }
+
+    .search-input-container {
+        margin-top: 20vh;
+        margin-bottom: 20vh;
+    }
     
 }
+
+
 
 
 // Animations

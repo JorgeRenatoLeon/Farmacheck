@@ -4,6 +4,7 @@ import * as ROUTES from "../../routes/routes";
 import APEPS from "../../assets/svg/APEPS.svg";
 import APESEG from "../../assets/img/APESEGCURVA.png";
 import Farma from "../../assets/svg/Farma.svg";
+import Farmacheck from "../../assets/img/farmacheck.png";
 import Information from "../../components/Information/Information";
 import SearchBox from "../../components/SearchBox/SearchBox";
 
@@ -47,7 +48,7 @@ const Home = () => {
           <>
             <div className="logo-container">
               <div className="logo">
-                <img src={Farma} alt="logo" width="50%" height="80%"/>
+                <img src={Farmacheck} alt="logo" width="100%" height="80%"/>
               </div>
               <div className="text-description-container">
                 <div className="text-description-after">
@@ -55,13 +56,9 @@ const Home = () => {
                 </div>
               </div>
             </div>
-            <SearchBox searchMed={handleSearch}/>
-            <div className="text-description-container">
-                <div className="text-description-after">
-                  Al usar el buscador estas sujeto a nuestros<br/>
-                  <Link to={ROUTES.TERMSANDCONDITIONS} className="link-tc">Términos y condiciones</Link>
-                </div>
-              </div>
+            <div className="search-input-container">
+              <SearchBox searchMed={handleSearch}/> 
+            </div>           
             <div className="bottom-logos row m-0">
               <div className="bottom-logo-icon col p-0">
                 <img 
@@ -72,6 +69,12 @@ const Home = () => {
                 <img 
                   src={APESEG}
                   alt="apeseg" width="130px" height="130px"/>
+              </div>
+            </div>
+            <div className="text-description-container">
+              <div className="text-description-after">
+                Al usar el buscador estas sujeto a nuestros<br/>
+                <Link to={ROUTES.TERMSANDCONDITIONS} className="link-tc">Términos y condiciones</Link>
               </div>
             </div>
           </>
